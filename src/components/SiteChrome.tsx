@@ -1,5 +1,5 @@
 import { Linkedin, Send, ShieldCheck, Twitter, Youtube } from "lucide-react";
-import fastTradeLogo from "@/assets/fasttrade99-logo-main.png";
+import fastTradeLogo from "@/assets/fasttrade99-logo-official.png";
 import { Button } from "@/components/ui/button";
 
 const navItems = ["How It Works", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
@@ -21,7 +21,7 @@ const navHref = (item: string) =>
 
 export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
   <a href="/" className="flex items-center" aria-label="FastTrade99 home">
-    <span className={`flex h-16 w-[255px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-2" : "bg-card"}`}>
+    <span className={`flex h-16 w-[270px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-3" : "bg-card px-1"}`}>
       <img src={fastTradeLogo} alt="FastTrade99" className="h-full w-full object-contain" />
     </span>
   </a>
