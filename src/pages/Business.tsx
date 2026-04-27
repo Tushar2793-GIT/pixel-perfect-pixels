@@ -28,8 +28,8 @@ import {
 } from "lucide-react";
 import businessHero from "@/assets/business-hero-boardroom.jpg";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const audiences = [
   [ShieldCheck, "Wealth Managers", "Grow AUM & client returns"],
@@ -97,33 +97,6 @@ const partnerPlans = [
   ["White Label Solution", "Launch your own branded platform", "License + Revenue Share", "Custom", "", ["Your Brand, Our Technology", "Full Platform Access", "Marketing & Onboarding Support", "Long Term Partnership"], "orange", "Contact Sales"],
 ];
 
-const Header = () => (
-  <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[102px] max-w-[1920px] items-center justify-between px-8 2xl:px-9">
-      <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-        <span className="flex size-14 items-center justify-center rounded-full border-2 border-primary bg-card text-2xl font-extrabold text-primary shadow-sm">FT</span>
-        <span className="font-display text-[38px] font-extrabold leading-none tracking-normal text-brand-navy">
-          fasttrade<span className="text-primary">99</span>
-        </span>
-      </a>
-      <div className="hidden items-center gap-8 text-base font-extrabold text-brand-navy xl:flex">
-        {navItems.map((item) => (
-          <a
-            key={item}
-            href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"}
-            className={`relative py-10 transition-colors hover:text-primary ${item === "For Business" ? "text-primary after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="brandOutline" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold">Login</Button>
-        <Button variant="brand" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold shadow-button">Sign Up</Button>
-      </div>
-    </nav>
-  </header>
-);
 
 const IconBubble = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone?: "primary" | "success" | "orange" }) => (
   <span className={`flex size-16 shrink-0 items-center justify-center rounded-full bg-secondary ${tone === "success" ? "text-success" : tone === "orange" ? "text-brand-orange" : "text-primary"}`}>
@@ -134,7 +107,7 @@ const IconBubble = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone
 const Business = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Header />
+      <Header activeItem="For Business" />
 
       <section className="mx-auto max-w-[1920px] px-4 pb-4 pt-5 sm:px-8">
         <div className="grid min-h-[610px] overflow-hidden rounded-lg bg-card lg:grid-cols-[0.37fr_0.63fr]">
@@ -316,6 +289,7 @@ const Business = () => {
           <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-12 fill-primary text-primary"/><p className="-mt-8 ml-16 text-base font-bold leading-7 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-4 ml-16 flex gap-2">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-7 fill-brand-gold text-brand-gold" />)}</div></div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 };

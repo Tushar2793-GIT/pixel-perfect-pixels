@@ -25,8 +25,8 @@ import {
 import traderHero from "@/assets/trader-hero-command-center.jpg";
 import traderAvatars from "@/assets/trader-testimonial-avatars.jpg";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const featureBlocks = [
   [BrainCircuit, "AI Momentum Engine", ["Detects market strength in real-time", "Decides number of averages dynamically", "Builds high-probability watchlist every day"], "primary"],
@@ -86,25 +86,6 @@ const testimonials = [
   ["Best platform for anyone who wants professional trading without sitting in front of charts all day.", "Vikram S.", "Position Trader", "right"],
 ];
 
-const Header = () => (
-  <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[102px] max-w-[1920px] items-center justify-between px-8 2xl:px-9">
-      <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-        <span className="flex size-14 items-center justify-center rounded-full border-2 border-primary bg-card text-2xl font-extrabold text-primary shadow-sm">FT</span>
-        <span className="font-display text-[38px] font-extrabold leading-none tracking-normal text-brand-navy">fasttrade<span className="text-primary">99</span></span>
-      </a>
-      <div className="hidden items-center gap-8 text-base font-extrabold text-brand-navy xl:flex">
-        {navItems.map((item) => (
-          <a key={item} href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"} className={`relative py-10 transition-colors hover:text-primary ${item === "For Traders" ? "text-primary after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}>{item}</a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="brandOutline" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold">Login</Button>
-        <Button variant="brand" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold shadow-button">Sign Up</Button>
-      </div>
-    </nav>
-  </header>
-);
 
 const IconCircle = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone?: "primary" | "success" }) => (
   <span className={`flex size-20 shrink-0 items-center justify-center rounded-full shadow-button ${tone === "success" ? "bg-success text-success-foreground" : "bg-gradient-brand text-primary-foreground"}`}>
