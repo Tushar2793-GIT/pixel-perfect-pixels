@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -38,6 +39,19 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          strong: "hsl(var(--surface-strong))",
+        },
+        brand: {
+          navy: "hsl(var(--brand-navy))",
+          blue: "hsl(var(--brand-blue))",
+          violet: "hsl(var(--brand-violet))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -64,6 +78,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
         "accordion-down": {
           from: {
             height: "0",
@@ -82,6 +104,8 @@ export default {
         },
       },
       animation: {
+        float: "float 5s ease-in-out infinite",
+        shimmer: "shimmer 2.6s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
