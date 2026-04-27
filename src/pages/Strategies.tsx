@@ -125,9 +125,9 @@ const Strategies = () => (
   <main className="min-h-screen bg-background text-foreground">
     <Header />
 
-    <section className="mx-auto max-w-[1560px] px-4 pb-8 pt-8 sm:px-6">
-      <div className="grid items-center gap-12 lg:grid-cols-[0.38fr_0.62fr]">
-        <div className="flex min-h-[580px] flex-col justify-center">
+    <section className="mx-auto max-w-[1920px] px-5 pb-8 pt-8 lg:px-8 2xl:px-10">
+      <div className="grid items-center gap-12 xl:grid-cols-[0.35fr_0.65fr] 2xl:gap-16">
+        <div className="flex min-h-[610px] flex-col justify-center">
           <p className="text-base font-extrabold uppercase tracking-wider text-primary">Strategies</p>
           <h1 className="mt-8 font-display text-[clamp(3.1rem,4.2vw,4.75rem)] font-extrabold leading-[1.08] text-brand-navy">
             Smart Strategies.<br />Stronger Performance.
@@ -145,7 +145,7 @@ const Strategies = () => (
             ))}
           </ul>
 
-          <div className="mt-auto grid max-w-[550px] grid-cols-2 gap-8 pt-12">
+          <div className="mt-auto grid max-w-[620px] grid-cols-2 gap-8 pt-12">
             <Button variant="brand" className="h-20 rounded-md text-xl font-extrabold shadow-button">Create Strategy</Button>
             <Button variant="brandOutline" className="h-20 rounded-md text-xl font-extrabold text-primary">Explore Marketplace</Button>
           </div>
@@ -155,7 +155,7 @@ const Strategies = () => (
       </div>
     </section>
 
-    <section className="mx-auto max-w-[1560px] px-4 pb-8 sm:px-6">
+    <section className="mx-auto max-w-[1920px] px-5 pb-8 lg:px-8 2xl:px-10">
       <h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Strategy Advantage</h2>
       <div className="mt-6 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
         {strategyAdvantages.map(([Icon, title, text]) => {
@@ -175,7 +175,7 @@ const Strategies = () => (
       </div>
     </section>
 
-    <section className="mx-auto max-w-[1560px] px-4 pb-10 sm:px-6">
+    <section className="mx-auto max-w-[1920px] px-5 pb-10 lg:px-8 2xl:px-10">
       <div className="grid min-h-[140px] items-center overflow-hidden rounded-xl bg-gradient-brand text-primary-foreground shadow-button lg:grid-cols-[132px_1fr_auto]">
         <div className="flex h-full items-center justify-center bg-primary/20">
           <Bot className="size-16" />
