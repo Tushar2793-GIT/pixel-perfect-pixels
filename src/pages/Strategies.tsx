@@ -64,8 +64,8 @@ const Header = () => (
 );
 
 const StrategyDashboard = () => (
-  <div className="grid h-full min-h-[580px] overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.2fr_0.8fr]">
-    <aside className="flex flex-col gap-5 border-r border-primary-foreground/5 bg-brand-navy/80 px-5 py-8">
+  <div className="grid h-full min-h-[610px] overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.18fr_0.82fr]">
+    <aside className="flex flex-col gap-5 border-r border-primary-foreground/5 bg-brand-navy/80 px-6 py-8">
       {dashboardMenu.map((item) => (
         <div key={item} className={`flex items-center gap-3 rounded-md px-4 py-3 text-sm font-extrabold ${item === "Strategies" ? "bg-gradient-brand text-primary-foreground shadow-button" : "text-primary-foreground/72"}`}>
           <span className="flex size-7 items-center justify-center rounded-md border border-primary-foreground/12 bg-primary-foreground/5">
@@ -76,7 +76,7 @@ const StrategyDashboard = () => (
       ))}
     </aside>
 
-    <section className="flex flex-col gap-5 bg-brand-navy px-6 py-7">
+    <section className="flex flex-col gap-5 bg-brand-navy px-7 py-7 2xl:px-9">
       <h2 className="text-xl font-extrabold">Strategy Performance</h2>
       <div className="rounded-xl bg-card/5 p-5 ring-1 ring-primary-foreground/5">
         <svg viewBox="0 0 760 210" className="h-[210px] w-full" aria-label="Strategy performance equity curve">
@@ -96,7 +96,7 @@ const StrategyDashboard = () => (
 
       <div className="grid grid-cols-4 gap-4">
         {strategyStats.map(([label, value]) => (
-          <article key={label} className="rounded-lg bg-card/6 px-5 py-5 ring-1 ring-primary-foreground/5">
+          <article key={label} className="rounded-lg bg-card/6 px-6 py-5 ring-1 ring-primary-foreground/5">
             <p className="text-sm font-extrabold text-primary-foreground/72">{label}</p>
             <p className={`mt-3 text-2xl font-extrabold ${value.includes("%") || value === "18" ? "text-success" : "text-primary-foreground"}`}>{value}</p>
           </article>
@@ -108,11 +108,11 @@ const StrategyDashboard = () => (
           <h3 className="text-lg font-extrabold">Top Performing Strategies</h3>
           <a href="#" className="text-sm font-extrabold text-primary-glow">View All</a>
         </div>
-        <div className="grid grid-cols-[1.25fr_0.7fr_0.8fr_0.7fr_0.7fr] bg-primary-foreground/4 px-5 py-3 text-sm font-extrabold text-primary-foreground/72">
+        <div className="grid grid-cols-[1.35fr_0.75fr_0.85fr_0.75fr_0.75fr] bg-primary-foreground/4 px-6 py-3 text-sm font-extrabold text-primary-foreground/72">
           <span>Strategy Name</span><span>Asset</span><span>Return</span><span>Win Rate</span><span>Max DD</span>
         </div>
         {tableRows.map((row, index) => (
-          <div key={row[0]} className={`grid grid-cols-[1.25fr_0.7fr_0.8fr_0.7fr_0.7fr] px-5 py-4 text-sm font-extrabold ${index % 2 === 0 ? "bg-primary-foreground/6" : "bg-transparent"}`}>
+          <div key={row[0]} className={`grid grid-cols-[1.35fr_0.75fr_0.85fr_0.75fr_0.75fr] px-6 py-4 text-sm font-extrabold ${index % 2 === 0 ? "bg-primary-foreground/6" : "bg-transparent"}`}>
             <span>{row[0]}</span><span>{row[1]}</span><span className="text-success">{row[2]}</span><span>{row[3]}</span><span>{row[4]}</span>
           </div>
         ))}
