@@ -73,7 +73,7 @@ const Index = () => {
             {navItems.map((item, index) => (
               <a
                 key={`${item}-${index}`}
-                href={item === "About Us" ? "/about" : item === "Pricing" ? "#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : "#"}
+                href={item === "About Us" ? "/about" : item === "Pricing" ? "#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"}
                 className={`relative py-10 transition-colors hover:text-primary ${item === "Pricing" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
               >
                 {item}
