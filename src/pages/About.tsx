@@ -28,7 +28,7 @@ const About = () => {
     <main className="min-h-screen bg-background text-foreground">
       <Header activeItem="About Us" />
 
-      <section className="mx-auto max-w-[1360px] px-3 pb-8 pt-6 sm:px-5 lg:px-3">
+      <section className="mx-auto max-w-[1920px] px-5 pb-8 pt-6 sm:px-6 lg:px-8 2xl:px-10">
         <div className="grid overflow-hidden rounded-lg border bg-card shadow-card lg:grid-cols-[0.88fr_1.12fr]">
           <div className="flex min-h-[410px] flex-col justify-center px-7 py-10 sm:px-10 lg:px-12">
             <p className="text-sm font-extrabold uppercase tracking-widest text-primary">About Us</p>
