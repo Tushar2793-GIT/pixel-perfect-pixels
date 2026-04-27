@@ -66,11 +66,11 @@ const useCases = [
 ];
 
 const performanceStats = [
-  ["Monthly Return (Avg.)", "10 – 12%", "Consistent Growth", "text-brand-navy"],
-  ["Total P&L (This Month)", "₹42,72,380", "+10.68%", "text-success"],
-  ["Win Rate", "72.45%", "High Accuracy", "text-brand-navy"],
-  ["Profit Factor", "2.48", "Strong Performance", "text-brand-navy"],
-  ["Max Drawdown", "-6.32%", "Controlled Risk", "text-brand-navy"],
+  ["Monthly Return (Avg.)", "10 – 12%", "Consistent Growth", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Total P&L (This Month)", "₹42,72,380", "+10.68%", "text-success", "text-[clamp(1.35rem,1.28vw,1.75rem)]"],
+  ["Win Rate", "72.45%", "High Accuracy", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Profit Factor", "2.48", "Strong Performance", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Max Drawdown", "-6.32%", "Controlled Risk", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
 ];
 
 const security = [
@@ -163,9 +163,10 @@ const Business = () => {
               <Button variant="brandOutline" className="h-[58px] rounded-md px-8 text-lg font-extrabold text-primary">View Performance Reports <LineChart className="size-5" /></Button>
             </div>
           </div>
-          <div className="relative min-h-[610px] overflow-hidden rounded-lg">
-            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover" />
+          <div className="relative min-h-[610px] overflow-hidden rounded-xl shadow-card">
+            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover object-center contrast-[1.08] saturate-[1.12] brightness-[1.03]" />
             <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-card via-card/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 mix-blend-soft-light" />
           </div>
         </div>
       </section>
@@ -226,10 +227,10 @@ const Business = () => {
             })}
           </div>
         </div>
-        <aside className="rounded-lg border bg-card p-8 shadow-sm">
+        <aside className="rounded-2xl border bg-card p-8 shadow-sm">
           <h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Key Differentiator</h2>
-          <Quote className="mt-8 size-11 fill-primary text-primary" />
-          <p className="mt-2 text-[22px] font-bold leading-9 text-muted-foreground">You don't need a team of traders. Our AI does the heavy lifting. You focus on growing your business.</p>
+          <Quote className="mt-8 size-12 fill-primary text-primary" />
+          <p className="mt-1 pl-10 text-[22px] font-bold leading-9 text-muted-foreground">You don't need a team of traders. Our AI does the heavy lifting. You focus on growing your business.</p>
           <p className="mt-7 font-display text-[30px] font-extrabold text-primary">We handle the rest.</p>
         </aside>
       </section>
@@ -247,18 +248,25 @@ const Business = () => {
         <div className="rounded-lg border bg-card p-7 shadow-sm">
           <h2 className="font-display text-[26px] font-extrabold text-brand-navy">Live Performance Snapshot</h2>
           <div className="mt-6 grid gap-2 lg:grid-cols-5">
-            {performanceStats.map(([label, value, sub, tone]) => <div key={label} className="rounded-lg border bg-card p-5"><p className="text-base font-bold text-muted-foreground">{label}</p><p className={`mt-4 font-display text-[30px] font-extrabold ${tone}`}>{value}</p><p className="mt-1 text-base font-bold text-muted-foreground">{sub}</p></div>)}
+            {performanceStats.map(([label, value, sub, tone, size]) => <div key={label} className="min-w-0 rounded-xl border bg-card p-5"><p className="text-sm font-extrabold leading-5 text-brand-navy">{label}</p><p className={`mt-4 break-words font-display font-extrabold leading-none ${tone} ${size}`}>{value}</p><p className="mt-2 text-base font-extrabold text-success">{sub}</p></div>)}
           </div>
           <div className="mt-5 grid gap-3 lg:grid-cols-[1fr_0.5fr]">
-            <div className="rounded-lg border p-6">
-              <h3 className="text-lg font-extrabold text-brand-navy">Equity Curve (AI Accounts)</h3>
-              <div className="mt-4 h-[260px] rounded-md bg-gradient-to-t from-accent/10 to-transparent relative overflow-hidden">
-                <svg viewBox="0 0 640 250" className="h-full w-full" role="img" aria-label="Rising AI account equity curve"><path d="M0 215 L45 198 L82 204 L125 174 L172 165 L212 151 L248 126 L292 142 L331 115 L372 96 L410 72 L455 84 L492 58 L535 40 L570 22 L640 8" fill="none" stroke="hsl(var(--accent))" strokeWidth="5"/><path d="M0 215 L45 198 L82 204 L125 174 L172 165 L212 151 L248 126 L292 142 L331 115 L372 96 L410 72 L455 84 L492 58 L535 40 L570 22 L640 8 L640 250 L0 250Z" fill="hsl(var(--accent) / 0.14)" /></svg>
+            <div className="rounded-xl border p-6">
+              <h3 className="text-2xl font-extrabold text-brand-navy">Equity Curve <span className="text-muted-foreground">(AI Accounts)</span></h3>
+              <div className="relative mt-4 h-[300px] overflow-hidden rounded-md bg-gradient-to-t from-accent/10 to-transparent">
+                <svg viewBox="0 0 760 300" className="h-full w-full" role="img" aria-label="Rising AI account equity curve">
+                  <defs><linearGradient id="equityFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="hsl(var(--accent) / 0.28)"/><stop offset="100%" stopColor="hsl(var(--accent) / 0.03)"/></linearGradient></defs>
+                  {[60,120,180,240].map((y)=><line key={y} x1="54" x2="735" y1={y} y2={y} stroke="hsl(var(--border))" strokeDasharray="5 7" />)}
+                  {[[48,"20L"],[108,"15L"],[168,"10L"],[228,"5L"],[276,"0"]].map(([y,t])=><text key={t} x="10" y={Number(y)+5} fill="hsl(var(--muted-foreground))" fontSize="18" fontWeight="800">{t}</text>)}
+                  <path d="M64 252 L88 246 L108 228 L130 232 L151 220 L174 225 L198 204 L219 196 L239 203 L262 185 L282 160 L302 174 L324 153 L345 137 L366 146 L388 118 L409 132 L431 124 L454 96 L476 84 L498 70 L520 51 L543 64 L565 58 L588 74 L610 50 L633 29 L655 18 L676 31 L698 23 L721 10" fill="none" stroke="hsl(var(--accent))" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M64 252 L88 246 L108 228 L130 232 L151 220 L174 225 L198 204 L219 196 L239 203 L262 185 L282 160 L302 174 L324 153 L345 137 L366 146 L388 118 L409 132 L431 124 L454 96 L476 84 L498 70 L520 51 L543 64 L565 58 L588 74 L610 50 L633 29 L655 18 L676 31 L698 23 L721 10 L721 300 L64 300Z" fill="url(#equityFill)" />
+                  {[[64,"Jan '24"],[174,"Mar '24"],[282,"May '24"],[388,"Jul '24"],[498,"Sep '24"],[610,"Nov '24"],[704,"Jan '25"]].map(([x,t])=><text key={t} x={Number(x)-28} y="292" fill="hsl(var(--muted-foreground))" fontSize="18" fontWeight="800">{t}</text>)}
+                </svg>
               </div>
             </div>
-            <div className="rounded-lg border p-6">
+            <div className="rounded-xl border p-6">
               <h3 className="text-lg font-extrabold text-brand-navy">Strategy Performance <span className="text-muted-foreground">(This Month)</span></h3>
-              <div className="mt-8 flex items-center gap-8"><div className="flex size-44 items-center justify-center rounded-full bg-[conic-gradient(hsl(var(--primary))_0_34%,hsl(var(--accent))_34%_62%,hsl(var(--brand-blue))_62%_84%,hsl(32_92%_58%)_84%_100%)]"><div className="flex size-24 flex-col items-center justify-center rounded-full bg-card"><b className="text-xl text-brand-navy">+10.68%</b><span className="text-xs font-bold text-muted-foreground">Total Return</span></div></div><div className="space-y-4 text-sm font-extrabold"><p><span className="text-primary">●</span> Momentum Pro <span className="ml-4 text-success">+12.35%</span></p><p><span className="text-success">●</span> AI Swing <span className="ml-10 text-success">+9.80%</span></p><p><span className="text-brand-blue">●</span> Multi Average <span className="ml-5 text-success">+8.92%</span></p><p><span className="text-[hsl(32_92%_58%)]">●</span> Alpha Breakout <span className="ml-3 text-success">+10.15%</span></p></div></div>
+              <div className="mt-8 flex flex-wrap items-center gap-8"><div className="flex size-44 shrink-0 items-center justify-center rounded-full bg-[conic-gradient(hsl(var(--primary))_0_28%,hsl(var(--accent))_28%_63%,hsl(var(--brand-blue))_63%_88%,hsl(var(--brand-orange))_88%_100%)] shadow-card"><div className="flex size-24 flex-col items-center justify-center rounded-full bg-card"><b className="text-3xl text-brand-navy">+10.68%</b><span className="text-sm font-extrabold text-muted-foreground">Total Return</span></div></div><div className="min-w-[230px] flex-1 space-y-5 text-base font-extrabold"><p className="grid grid-cols-[1rem_1fr_auto] items-center gap-3"><span className="text-primary">●</span><span>Momentum Pro</span><span className="text-success">+12.35%</span></p><p className="grid grid-cols-[1rem_1fr_auto] items-center gap-3"><span className="text-success">●</span><span>AI Swing</span><span className="text-success">+9.80%</span></p><p className="grid grid-cols-[1rem_1fr_auto] items-center gap-3"><span className="text-brand-blue">●</span><span>Multi Average</span><span className="text-success">+8.92%</span></p><p className="grid grid-cols-[1rem_1fr_auto] items-center gap-3"><span className="text-brand-orange">●</span><span>Alpha Breakout</span><span className="text-success">+10.15%</span></p></div></div>
             </div>
           </div>
         </div>
@@ -284,7 +292,7 @@ const Business = () => {
         <div className="grid gap-5 xl:grid-cols-[1fr_0.47fr]">
           <div className="grid gap-5 lg:grid-cols-4">
             {partnerPlans.map(([name, sub, label, value, suffix, features, tone, cta]) => (
-              <article key={name as string} className={`rounded-lg border bg-card p-8 text-center shadow-sm ${tone === "success" ? "border-accent/30" : tone === "orange" ? "border-brand-orange/35" : ""}`}>
+              <article key={name as string} className={`rounded-2xl border bg-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-card ${tone === "success" ? "border-accent/30 hover:border-accent" : tone === "orange" ? "border-brand-orange/35 hover:border-brand-orange" : "hover:border-primary"}`}>
                 <h3 className={`font-display text-[25px] font-extrabold ${tone === "success" ? "text-success" : tone === "orange" ? "text-brand-orange" : "text-primary"}`}>{name as string}</h3>
                 <p className="mt-2 text-sm font-bold text-muted-foreground">{sub as string}</p>
                 <p className="mt-6 text-base font-extrabold text-brand-navy">{label as string}</p>
@@ -303,9 +311,9 @@ const Business = () => {
             <p className="mt-5 text-base font-bold text-primary-foreground/75">No Hidden Fees <span className="mx-5">•</span> No Lock-in Period <span className="mx-5">•</span> Cancel Anytime</p>
           </aside>
         </div>
-        <div className="mt-2 grid gap-4 rounded-lg bg-brand-navy p-6 text-primary-foreground lg:grid-cols-[0.68fr_0.32fr]">
+        <div className="mt-2 grid gap-4 rounded-2xl bg-brand-navy p-6 text-primary-foreground lg:grid-cols-[0.68fr_0.32fr]">
           <div><h3 className="font-display text-xl font-extrabold">Trusted by Businesses Across India</h3><div className="mt-5 grid grid-cols-6 gap-5">{[[ShieldCheck,"₹4Cr+","Capital Deployed"],[UsersRound,"99+","Active Accounts"],[ChartNoAxesCombined,"10–12%","Average Monthly Returns"],[Target,"72%+","Win Rate"],[CircleGauge,"24/7","AI Trading"],[BriefcaseBusiness,"100%","Transparency"]].map(([Icon,value,label])=>{const TrustIcon=Icon as typeof ShieldCheck; return <div key={label as string} className="flex items-center gap-3"><TrustIcon className="size-8 text-primary"/><div><p className="font-display text-2xl font-extrabold">{value as string}</p><p className="text-xs font-bold text-primary-foreground/70">{label as string}</p></div></div>})}</div></div>
-          <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-10 fill-primary text-primary"/><p className="-mt-7 ml-14 text-base font-bold leading-6 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-3 ml-14 flex gap-1">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-6 fill-brand-gold text-brand-gold" />)}</div></div>
+          <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-12 fill-primary text-primary"/><p className="-mt-8 ml-16 text-base font-bold leading-7 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-4 ml-16 flex gap-2">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-7 fill-brand-gold text-brand-gold" />)}</div></div>
         </div>
       </section>
     </main>
