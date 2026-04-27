@@ -1,6 +1,6 @@
 import { ArrowRight, BadgeCheck, BrainCircuit, Eye, Flag, Lightbulb, Rocket, ShieldCheck, Target, TrendingUp, UsersRound } from "lucide-react";
 import aboutTeam from "@/assets/about-team-mixed.jpg";
-import ftCircleLogo from "@/assets/fasttrade99-ft-circle.png";
+import ftCircleLogo from "@/assets/fasttrade99-ft-official.png";
 import { Button } from "@/components/ui/button";
 import { Footer, Header } from "@/components/SiteChrome";
 
@@ -50,8 +50,8 @@ const About = () => {
           </div>
           <div className="relative min-h-[360px] overflow-hidden bg-secondary lg:min-h-[410px]">
             <img src={aboutTeam} alt="FastTrade99 team working together in a modern office" width={1280} height={720} className="h-full w-full object-cover" />
-            <span className="absolute right-8 top-8 flex size-20 items-center justify-center rounded-full bg-card p-1 shadow-button ring-8 ring-card/30">
-              <img src={ftCircleLogo} alt="FastTrade99 FT logo" className="size-full rounded-full object-contain" />
+            <span className="absolute right-8 top-8 flex size-20 items-center justify-center rounded-full bg-card p-1.5 shadow-button ring-8 ring-card/30">
+              <img src={ftCircleLogo} alt="FastTrade99 FT logo" className="size-full rounded-full object-cover" />
             </span>
           </div>
         </div>
