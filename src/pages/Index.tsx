@@ -1,4 +1,4 @@
-import { ArrowUpRight, BarChart3, BriefcaseBusiness, CalendarDays, Check, ChevronDown, CircleDollarSign, LineChart, LockKeyhole, Play, ShieldCheck, Sparkles, Target, Users, Zap } from "lucide-react";
+import { ArrowUpRight, BarChart3, CalendarDays, Check, ChevronDown, LineChart, ShieldCheck, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = ["How It Works", "Features", "For Traders", "For Non-Traders", "For Business", "Pricing"];
@@ -38,7 +38,7 @@ const Index = () => {
             <span className="font-display text-2xl font-bold tracking-normal text-brand-navy">fasttrade<span className="text-primary">99</span></span>
           </a>
           <div className="hidden items-center gap-8 text-sm font-bold text-brand-navy lg:flex">
-            {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} className="transition-colors hover:text-primary">{item}</a>)}
+            {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().split(" ").join("-")}`} className="transition-colors hover:text-primary">{item}</a>)}
           </div>
           <Button variant="brand" size="lg">Sign Up</Button>
         </nav>
