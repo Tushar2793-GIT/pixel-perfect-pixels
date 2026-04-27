@@ -1,28 +1,23 @@
 import {
   ArrowRight,
   BadgeCheck,
-  Banknote,
   Bell,
   Bot,
   BriefcaseBusiness,
-  Building2,
   ChartNoAxesCombined,
   Check,
   CircleGauge,
   ClipboardCheck,
   FileChartColumn,
   Handshake,
-  Headphones,
   IndianRupee,
   Landmark,
   LineChart,
   LockKeyhole,
   Network,
-  PanelsTopLeft,
   PiggyBank,
   PlugZap,
   Quote,
-  Scale,
   ShieldCheck,
   Star,
   Target,
@@ -131,7 +126,7 @@ const Header = () => (
 );
 
 const IconBubble = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone?: "primary" | "success" | "orange" }) => (
-  <span className={`flex size-16 shrink-0 items-center justify-center rounded-full bg-secondary text-${tone === "success" ? "success" : "primary"}`}>
+  <span className={`flex size-16 shrink-0 items-center justify-center rounded-full bg-secondary ${tone === "success" ? "text-success" : tone === "orange" ? "text-brand-orange" : "text-primary"}`}>
     <Icon className="size-8" />
   </span>
 );
