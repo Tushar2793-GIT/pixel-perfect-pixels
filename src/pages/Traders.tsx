@@ -95,7 +95,7 @@ const Header = () => (
       </a>
       <div className="hidden items-center gap-8 text-base font-extrabold text-brand-navy xl:flex">
         {navItems.map((item) => (
-          <a key={item} href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : "#"} className={`relative py-10 transition-colors hover:text-primary ${item === "For Traders" ? "text-primary after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}>{item}</a>
+          <a key={item} href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"} className={`relative py-10 transition-colors hover:text-primary ${item === "For Traders" ? "text-primary after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}>{item}</a>
         ))}
       </div>
       <div className="flex items-center gap-3">
