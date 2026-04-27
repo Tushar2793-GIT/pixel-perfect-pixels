@@ -101,12 +101,6 @@ const stats = [
   [Lock, "Bank Grade", "Security"],
 ];
 
-const pricingPlans = [
-  ["Starter", "₹0", "Explore the platform", ["Paper trading access", "Basic strategy templates", "Broker connection preview"]],
-  ["Pro Trader", "₹999", "For active traders", ["Live algo deployment", "Advanced risk controls", "Backtesting & reports"]],
-  ["Business", "Custom", "For teams and partners", ["Sub-account management", "Performance fee tracking", "Dedicated onboarding"]],
-];
-
 const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?: boolean }) => (
   <div className={`relative overflow-hidden rounded-md border ${dark ? "border-primary-foreground/10 bg-brand-navy" : "bg-card"} ${compact ? "h-[210px]" : "h-full min-h-[250px]"}`}>
     <svg className="h-full w-full" viewBox="0 0 620 300" role="img" aria-label="NIFTY 50 candlestick performance chart">
@@ -247,30 +241,6 @@ const Index = () => (
       <PlatformPreview />
       <div className="mt-6 grid overflow-hidden rounded-xl bg-gradient-brand p-5 text-primary-foreground shadow-button md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">{stats.map(([Icon, value, label], index) => { const I = Icon as typeof Network; return <div key={label as string} className={`flex items-center gap-4 px-5 py-3 ${index !== stats.length - 1 ? "xl:border-r xl:border-primary-foreground/20" : ""}`}><I className="size-14 rounded-full bg-primary-foreground/15 p-3" /><div><p className="text-3xl font-extrabold">{value as string}</p><p className="font-bold text-primary-foreground/82">{label as string}</p></div></div>; })}</div>
       <div className="mt-6 grid items-center gap-8 overflow-hidden rounded-xl border border-primary/10 bg-secondary px-8 py-8 shadow-sm lg:grid-cols-[300px_1fr_auto]"><AnimatedRobot /><div><p className="text-sm font-extrabold uppercase tracking-widest text-primary">AI automation built for disciplined trading</p><h2 className="mt-3 max-w-[760px] font-display text-4xl font-extrabold leading-tight text-brand-navy">Ready to Take Your Trading to the Next Level?</h2><p className="mt-4 max-w-[720px] text-xl font-bold leading-8 text-muted-foreground">Join FastTrade99 and experience smarter execution, connected brokers, automated strategies and multi-level risk control in one professional workspace.</p></div><div className="grid gap-4"><Button variant="brand" className="h-16 px-10 text-xl font-extrabold shadow-button">Start Your Free Trial</Button><Button variant="brandOutline" className="h-16 px-10 text-xl font-extrabold">Book a Demo</Button><p className="text-center text-sm font-extrabold text-muted-foreground">No Credit Card Required</p></div></div>
-    </section>
-
-    <section id="pricing" className="scroll-mt-28 bg-secondary px-5 py-12 lg:px-8 2xl:px-10">
-      <div className="mx-auto max-w-[1920px]">
-        <div className="text-center">
-          <p className="text-lg font-extrabold uppercase tracking-widest text-primary">Pricing</p>
-          <h2 className="mt-2 font-display text-4xl font-extrabold text-brand-navy">Choose the Plan That Fits Your Trading</h2>
-        </div>
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {pricingPlans.map(([name, price, caption, items], index) => (
-            <article key={name as string} className={`flex min-h-[360px] flex-col rounded-xl border bg-card p-7 shadow-sm ${index === 1 ? "border-primary shadow-card" : "border-primary/10"}`}>
-              <div className="flex items-start justify-between gap-4">
-                <div><h3 className="font-display text-3xl font-extrabold text-brand-navy">{name as string}</h3><p className="mt-2 text-base font-bold text-muted-foreground">{caption as string}</p></div>
-                {index === 1 && <span className="rounded-full bg-primary px-4 py-2 text-sm font-extrabold text-primary-foreground">Popular</span>}
-              </div>
-              <p className="mt-7 font-display text-5xl font-extrabold text-brand-navy">{price as string}<span className="text-base font-bold text-muted-foreground">{price === "Custom" ? "" : "/mo"}</span></p>
-              <ul className="mt-8 flex-1 space-y-4">
-                {(items as string[]).map((item) => <li key={item} className="flex items-center gap-3 text-base font-bold text-brand-navy"><Check className="size-6 rounded-full bg-success p-1 text-primary-foreground" />{item}</li>)}
-              </ul>
-              <Button variant={index === 1 ? "brand" : "brandOutline"} className="mt-8 h-14 rounded-md text-lg font-extrabold">{index === 2 ? "Contact Sales" : "Get Started"}</Button>
-            </article>
-          ))}
-        </div>
-      </div>
     </section>
 
     <Footer />
