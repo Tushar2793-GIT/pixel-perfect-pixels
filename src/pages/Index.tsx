@@ -24,6 +24,7 @@ import brokerAngelOne from "@/assets/broker-angelone.png";
 import brokerIcici from "@/assets/broker-icici.png";
 import brokerPaisa from "@/assets/broker-5paisa.png";
 import brokerDhan from "@/assets/broker-dhan.png";
+import ftCircleLogo from "@/assets/fasttrade99-ft-official.png";
 import { Button } from "@/components/ui/button";
 import { Footer, Header } from "@/components/SiteChrome";
 
@@ -128,11 +129,11 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 const BrokerStrip = () => (
   <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-7">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[72px] items-center justify-center rounded-lg border bg-card px-4 shadow-sm">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="max-h-10 w-full object-contain" />
+      <div key={broker.name} className="flex h-[72px] items-center justify-center rounded-md border border-primary/15 bg-card px-5 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="max-h-12 max-w-[132px] object-contain" />
       </div>
     ))}
-    <div className="flex h-[72px] items-center justify-center rounded-lg border bg-card px-4 text-base font-extrabold text-primary shadow-sm">+ More</div>
+    <div className="flex h-[72px] items-center justify-center rounded-md border border-primary/15 bg-card px-4 text-lg font-extrabold text-primary shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">+ More</div>
   </div>
 );
 
