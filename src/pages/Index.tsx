@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BadgeIndianRupee, CheckCircle2, Headphones, RotateCcw, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["How It Works", "Features", "For Traders", "For Traders", "For Business", "Pricing"];
+const navItems = ["About Us", "How It Works", "Features", "For Traders", "For Business", "Pricing"];
 
 const plans = [
   {
@@ -73,7 +73,7 @@ const Index = () => {
             {navItems.map((item, index) => (
               <a
                 key={`${item}-${index}`}
-                href={item === "Pricing" ? "#pricing" : "#"}
+                href={item === "About Us" ? "/about" : item === "Pricing" ? "#pricing" : "#"}
                 className={`relative py-10 transition-colors hover:text-primary ${item === "Pricing" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
               >
                 {item}
