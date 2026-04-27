@@ -1,8 +1,8 @@
 import { Linkedin, Send, ShieldCheck, Twitter, Youtube } from "lucide-react";
-import fastTradeLogo from "@/assets/fasttrade99-logo.png";
+import fastTradeLogo from "@/assets/fasttrade99-logo-main.png";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
+const navItems = ["How It Works", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const navHref = (item: string) =>
   item === "About Us"
@@ -21,8 +21,8 @@ const navHref = (item: string) =>
 
 export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
   <a href="/" className="flex items-center" aria-label="FastTrade99 home">
-    <span className={`flex h-16 w-[244px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-3" : "bg-card"}`}>
-      <img src={fastTradeLogo} alt="FastTrade99 AI-powered trading and wealth creation platform" className="h-full w-full object-contain" />
+    <span className={`flex h-16 w-[255px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-2" : "bg-card"}`}>
+      <img src={fastTradeLogo} alt="FastTrade99" className="h-full w-full object-contain" />
     </span>
   </a>
 );
@@ -51,7 +51,7 @@ export const Header = ({ activeItem }: { activeItem?: string }) => (
 );
 
 const footerGroups = [
-  ["Platform", ["How It Works", "Features", "Strategies", "Pricing", "Risk Management"]],
+  ["Platform", ["How It Works", "Strategies", "Pricing", "Risk Management"]],
   ["For Traders", ["Strategy Builder", "Backtesting", "Algo Trading", "Marketplace"]],
   ["For Non-Traders", ["Auto Trading", "AI Strategies", "How It Works", "Pricing"]],
   ["For Business", ["Sub-Accounts", "Performance Fee", "Analytics", "Reports"]],
