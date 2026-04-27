@@ -1,8 +1,8 @@
 import { ArrowRight, BadgeCheck, BrainCircuit, Eye, Flag, Lightbulb, Rocket, ShieldCheck, Target, TrendingUp, UsersRound } from "lucide-react";
-import aboutTeam from "@/assets/about-team.jpg";
+import aboutTeam from "@/assets/about-team-mixed.jpg";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["About Us", "How It Works", "Features", "For Traders", "For Business", "Pricing"];
+const navItems = ["How It Works", "Features", "For Traders", "For Business", "Pricing", "About Us"];
 
 const stats = [
   ["2023", "Founded"],
@@ -77,21 +77,21 @@ const About = () => {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          <article className="rounded-lg border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
+          <article className="rounded-2xl border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
             <span className="flex size-12 items-center justify-center rounded-full bg-secondary text-primary"><Target className="size-6" /></span>
             <h2 className="mt-5 font-display text-xl font-extrabold text-brand-navy">Our Mission</h2>
             <p className="mt-4 text-sm font-bold leading-7 text-muted-foreground">
               To empower traders and investors with AI-driven tools, intelligent strategies, and robust risk management to create consistent wealth.
             </p>
           </article>
-          <article className="rounded-lg border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
+          <article className="rounded-2xl border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
             <span className="flex size-12 items-center justify-center rounded-full bg-secondary text-primary"><Eye className="size-6" /></span>
             <h2 className="mt-5 font-display text-xl font-extrabold text-brand-navy">Our Vision</h2>
             <p className="mt-4 text-sm font-bold leading-7 text-muted-foreground">
               To be the world's most trusted multi-broker trading platform that democratizes financial freedom for all.
             </p>
           </article>
-          <article className="rounded-lg border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
+          <article className="rounded-2xl border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
             <span className="flex size-12 items-center justify-center rounded-full bg-secondary text-primary"><ShieldCheck className="size-6" /></span>
             <h2 className="mt-5 font-display text-xl font-extrabold text-brand-navy">Our Values</h2>
             <ul className="mt-4 space-y-3">
