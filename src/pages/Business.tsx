@@ -66,11 +66,11 @@ const useCases = [
 ];
 
 const performanceStats = [
-  ["Monthly Return (Avg.)", "10 – 12%", "Consistent Growth", "text-brand-navy"],
-  ["Total P&L (This Month)", "₹42,72,380", "+10.68%", "text-success"],
-  ["Win Rate", "72.45%", "High Accuracy", "text-brand-navy"],
-  ["Profit Factor", "2.48", "Strong Performance", "text-brand-navy"],
-  ["Max Drawdown", "-6.32%", "Controlled Risk", "text-brand-navy"],
+  ["Monthly Return (Avg.)", "10 – 12%", "Consistent Growth", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Total P&L (This Month)", "₹42,72,380", "+10.68%", "text-success", "text-[clamp(1.35rem,1.28vw,1.75rem)]"],
+  ["Win Rate", "72.45%", "High Accuracy", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Profit Factor", "2.48", "Strong Performance", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
+  ["Max Drawdown", "-6.32%", "Controlled Risk", "text-brand-navy", "text-[clamp(1.55rem,1.45vw,1.875rem)]"],
 ];
 
 const security = [
@@ -163,9 +163,10 @@ const Business = () => {
               <Button variant="brandOutline" className="h-[58px] rounded-md px-8 text-lg font-extrabold text-primary">View Performance Reports <LineChart className="size-5" /></Button>
             </div>
           </div>
-          <div className="relative min-h-[610px] overflow-hidden rounded-lg">
-            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover" />
+          <div className="relative min-h-[610px] overflow-hidden rounded-xl shadow-card">
+            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover object-center contrast-[1.08] saturate-[1.12] brightness-[1.03]" />
             <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-card via-card/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 mix-blend-soft-light" />
           </div>
         </div>
       </section>
@@ -226,10 +227,10 @@ const Business = () => {
             })}
           </div>
         </div>
-        <aside className="rounded-lg border bg-card p-8 shadow-sm">
+        <aside className="rounded-2xl border bg-card p-8 shadow-sm">
           <h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Key Differentiator</h2>
-          <Quote className="mt-8 size-11 fill-primary text-primary" />
-          <p className="mt-2 text-[22px] font-bold leading-9 text-muted-foreground">You don't need a team of traders. Our AI does the heavy lifting. You focus on growing your business.</p>
+          <Quote className="mt-8 size-12 fill-primary text-primary" />
+          <p className="mt-1 pl-10 text-[22px] font-bold leading-9 text-muted-foreground">You don't need a team of traders. Our AI does the heavy lifting. You focus on growing your business.</p>
           <p className="mt-7 font-display text-[30px] font-extrabold text-primary">We handle the rest.</p>
         </aside>
       </section>
