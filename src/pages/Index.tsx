@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BadgeIndianRupee, CheckCircle2, Headphones, RotateCcw, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["About Us", "How It Works", "Features", "For Traders", "For Business", "Pricing"];
+const navItems = ["How It Works", "Features", "For Traders", "For Business", "Pricing", "About Us"];
 
 const plans = [
   {
