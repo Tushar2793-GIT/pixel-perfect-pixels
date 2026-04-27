@@ -12,8 +12,8 @@ import {
   Target,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const strategyAdvantages = [
   [ClipboardCheck, "Backtested\nStrategies", "Tested over historical\ndata for reliability"],
@@ -36,32 +36,6 @@ const tableRows = [
   ["Swing Smart", "TCS", "+17.52%", "68%", "8.9%"],
 ];
 
-const Header = () => (
-  <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[102px] max-w-[1560px] items-center justify-between px-5 lg:px-6">
-      <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-        <span className="flex size-11 items-center justify-center rounded-full bg-gradient-brand text-lg font-extrabold text-primary-foreground shadow-button ring-4 ring-secondary">FT</span>
-        <span className="font-display text-[34px] font-extrabold leading-none tracking-normal text-brand-navy">
-          fasttrade<span className="text-primary">99</span>
-        </span>
-      </a>
-      <div className="hidden items-center gap-8 text-sm font-extrabold text-brand-navy xl:flex">
-        {navItems.map((item) => (
-          <a
-            key={item}
-            href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"}
-            className={`relative py-10 transition-colors hover:text-primary ${item === "Strategies" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-      <Button variant="brand" size="lg" className="h-14 rounded-md px-8 text-base shadow-button">
-        Sign Up
-      </Button>
-    </nav>
-  </header>
-);
 
 const StrategyDashboard = () => (
   <div className="grid h-full min-h-[610px] overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.18fr_0.82fr]">
@@ -123,7 +97,7 @@ const StrategyDashboard = () => (
 
 const Strategies = () => (
   <main className="min-h-screen bg-background text-foreground">
-    <Header />
+    <Header activeItem="Strategies" />
 
     <section className="mx-auto max-w-[1920px] px-5 pb-8 pt-8 lg:px-8 2xl:px-10">
       <div className="grid items-center gap-12 xl:grid-cols-[0.35fr_0.65fr] 2xl:gap-16">
@@ -189,6 +163,7 @@ const Strategies = () => (
         </div>
       </div>
     </section>
+    <Footer />
   </main>
 );
 

@@ -31,8 +31,8 @@ import shieldVisual from "@/assets/nontrader-shield-premium.png";
 import ctaDevice from "@/assets/nontrader-cta-investor-device.png";
 import investorAvatars from "@/assets/nontrader-investor-avatars.jpg";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const heroChecks = ["AI Manages Everything", "Fully Automated Trading", "Capital Protection First", "Transparent Performance", "Withdraw Anytime"];
 
@@ -101,38 +101,11 @@ const investorQuotes = [
   ["I started with small capital and now\nmy portfolio has grown steadily.\nBest decision I made!", "Rohit Verma", "Chartered Accountant, Delhi", "right"],
 ];
 
-const Header = () => (
-  <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[82px] max-w-[1920px] items-center justify-between px-7 2xl:px-9">
-      <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-        <span className="flex size-11 items-center justify-center rounded-full border-2 border-primary bg-card text-xl font-extrabold text-primary shadow-sm">FT</span>
-        <span className="font-display text-[34px] font-extrabold leading-none tracking-normal text-brand-navy">
-          fasttrade<span className="text-primary">99</span>
-        </span>
-      </a>
-      <div className="hidden items-center gap-8 text-base font-extrabold text-brand-navy xl:flex">
-        {navItems.map((item) => (
-          <a
-            key={item}
-            href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"}
-            className={`relative py-7 transition-colors hover:text-primary ${item === "For Non-Traders" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="brandOutline" size="lg" className="h-12 rounded-md px-7 text-base font-extrabold">Login</Button>
-        <Button variant="brand" size="lg" className="h-12 rounded-md px-7 text-base font-extrabold shadow-button">Sign Up</Button>
-      </div>
-    </nav>
-  </header>
-);
 
 const NonTraders = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Header />
+      <Header activeItem="For Non-Traders" />
 
       <section className="mx-auto max-w-[1920px] px-6 pb-2 pt-5 2xl:px-8">
         <div className="grid min-h-[610px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.31fr_0.69fr]">
@@ -217,6 +190,7 @@ const NonTraders = () => {
 
         <div className="mt-5 grid min-h-[178px] overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.2fr_0.36fr_0.44fr]"><div className="relative flex items-end justify-center bg-card/5"><img src={ctaDevice} alt="Investor tracking FastTrade99 AI growth dashboard" width={1024} height={512} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-[34%_70%] contrast-[1.08] saturate-[1.14]" /></div><div className="flex flex-col justify-center px-8 py-8"><h2 className="font-display text-[34px] font-extrabold leading-tight">Ready to Grow Your Wealth with AI?</h2><p className="mt-3 text-[20px] font-bold leading-8 text-primary-foreground/80">Join 100+ investors who trust FastTrade99 to grow their wealth the smart and stress-free way.</p></div><div className="flex flex-col justify-center gap-7 px-8 py-7"><div className="flex gap-6"><Button className="h-[72px] flex-1 rounded-xl bg-accent text-xl font-extrabold text-accent-foreground hover:bg-accent/90">Start Investing Now <ArrowRight className="size-7" /></Button><Button variant="brandOutline" className="h-[72px] flex-1 rounded-xl border-primary-foreground/40 bg-transparent text-xl font-extrabold text-primary-foreground hover:bg-card/10">Book a Free Demo <CalendarDays className="size-6" /></Button></div><div className="grid grid-cols-4 gap-5 text-sm font-extrabold text-primary-foreground/80">{[[BadgeCheck,"Instant Onboarding"],[ShieldCheck,"Secure & Encrypted"],[Clock3,"Withdraw Anytime"],[Headphones,"24/7 Support"]].map(([Icon,label])=>{const CtaIcon=Icon as typeof ShieldCheck; return <span key={label as string} className="flex items-center gap-2"><CtaIcon className="size-5" />{label as string}</span>})}</div></div></div>
       </section>
+      <Footer />
     </main>
   );
 };

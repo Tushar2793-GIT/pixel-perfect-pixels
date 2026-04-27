@@ -1,8 +1,8 @@
 import { ArrowRight, BadgeCheck, BrainCircuit, Eye, Flag, Lightbulb, Rocket, ShieldCheck, Target, TrendingUp, UsersRound } from "lucide-react";
 import aboutTeam from "@/assets/about-team-mixed.jpg";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const stats = [
   ["2023", "Founded"],
@@ -25,30 +25,7 @@ const journey = [
 const About = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-        <nav className="mx-auto flex h-[102px] max-w-[1360px] items-center justify-between px-5 lg:px-6">
-          <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-            <span className="flex size-11 items-center justify-center rounded-full bg-gradient-brand text-lg font-extrabold text-primary-foreground shadow-button ring-4 ring-secondary">FT</span>
-            <span className="font-display text-[34px] font-extrabold leading-none tracking-normal text-brand-navy">
-              fasttrade<span className="text-primary">99</span>
-            </span>
-          </a>
-          <div className="hidden items-center gap-8 text-sm font-extrabold text-brand-navy lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"}
-                className={`relative py-10 transition-colors hover:text-primary ${item === "About Us" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-          <Button variant="brand" size="lg" className="h-14 rounded-md px-8 text-base shadow-button">
-            Sign Up
-          </Button>
-        </nav>
-      </header>
+      <Header activeItem="About Us" />
 
       <section className="mx-auto max-w-[1360px] px-3 pb-8 pt-6 sm:px-5 lg:px-3">
         <div className="grid overflow-hidden rounded-lg border bg-card shadow-card lg:grid-cols-[0.88fr_1.12fr]">
@@ -140,6 +117,7 @@ const About = () => {
           </Button>
         </section>
       </section>
+      <Footer />
     </main>
   );
 };

@@ -25,8 +25,8 @@ import {
 import traderHero from "@/assets/trader-hero-command-center.jpg";
 import traderAvatars from "@/assets/trader-testimonial-avatars.jpg";
 import { Button } from "@/components/ui/button";
+import { Footer, Header } from "@/components/SiteChrome";
 
-const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const featureBlocks = [
   [BrainCircuit, "AI Momentum Engine", ["Detects market strength in real-time", "Decides number of averages dynamically", "Builds high-probability watchlist every day"], "primary"],
@@ -86,25 +86,6 @@ const testimonials = [
   ["Best platform for anyone who wants professional trading without sitting in front of charts all day.", "Vikram S.", "Position Trader", "right"],
 ];
 
-const Header = () => (
-  <header className="border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[102px] max-w-[1920px] items-center justify-between px-8 2xl:px-9">
-      <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-        <span className="flex size-14 items-center justify-center rounded-full border-2 border-primary bg-card text-2xl font-extrabold text-primary shadow-sm">FT</span>
-        <span className="font-display text-[38px] font-extrabold leading-none tracking-normal text-brand-navy">fasttrade<span className="text-primary">99</span></span>
-      </a>
-      <div className="hidden items-center gap-8 text-base font-extrabold text-brand-navy xl:flex">
-        {navItems.map((item) => (
-          <a key={item} href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : item === "Strategies" ? "/strategies" : "#"} className={`relative py-10 transition-colors hover:text-primary ${item === "For Traders" ? "text-primary after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}>{item}</a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="brandOutline" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold">Login</Button>
-        <Button variant="brand" size="lg" className="h-14 rounded-md px-7 text-base font-extrabold shadow-button">Sign Up</Button>
-      </div>
-    </nav>
-  </header>
-);
 
 const IconCircle = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone?: "primary" | "success" }) => (
   <span className={`flex size-20 shrink-0 items-center justify-center rounded-full shadow-button ${tone === "success" ? "bg-success text-success-foreground" : "bg-gradient-brand text-primary-foreground"}`}>
@@ -114,7 +95,7 @@ const IconCircle = ({ Icon, tone = "primary" }: { Icon: typeof ShieldCheck; tone
 
 const Traders = () => (
   <main className="min-h-screen bg-background text-foreground">
-    <Header />
+    <Header activeItem="For Traders" />
 
     <section className="mx-auto max-w-[1920px] px-6 pb-2 pt-5 2xl:px-8">
       <div className="grid min-h-[610px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.34fr_0.66fr]">
@@ -172,6 +153,7 @@ const Traders = () => (
     </section>
 
     <section className="mx-auto max-w-[1920px] px-6 pb-8 pt-2 2xl:px-8"><div className="rounded-xl border bg-card px-8 py-7 shadow-sm"><h2 className="text-center font-display text-[34px] font-extrabold text-brand-navy">Risk & Compliance First</h2><div className="mt-7 grid gap-6 lg:grid-cols-6">{compliance.map(([Icon, text]) => { const CompIcon = Icon as typeof ShieldCheck; return <article key={text as string} className="flex items-center justify-center gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-success/10 text-success"><CompIcon className="size-8" /></span><h3 className="whitespace-pre-line text-base font-extrabold leading-6 text-brand-navy">{text as string}</h3></article>; })}</div></div><div className="mt-5 grid overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card xl:grid-cols-[0.58fr_0.42fr]"><div className="bg-primary/25 p-8"><h2 className="font-display text-[30px] font-extrabold">What Traders Say</h2><div className="mt-6 grid gap-4 lg:grid-cols-3">{testimonials.map(([quote, name, role, position]) => <article key={name as string} className="flex min-h-[260px] flex-col justify-between rounded-xl bg-card p-6 text-brand-navy"><p className="text-base font-bold leading-7">{quote as string}</p><div className="mt-6 flex items-center gap-5"><span className="size-16 shrink-0 overflow-hidden rounded-full bg-secondary"><img src={traderAvatars} alt={`${name as string} trader portrait`} width={1536} height={512} loading="lazy" className={`h-full w-[300%] max-w-none object-cover ${position === "left" ? "object-left" : position === "center" ? "-translate-x-1/3 object-center" : "-translate-x-2/3 object-right"}`} /></span><div><p className="text-lg font-extrabold">{name as string}</p><p className="text-base font-bold text-muted-foreground">{role as string}</p><div className="mt-2 flex gap-1">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-4 fill-brand-gold text-brand-gold" />)}</div></div></div></article>)}</div></div><div className="flex flex-col justify-center p-12"><h2 className="font-display text-[42px] font-extrabold leading-tight">Ready to Trade Smarter with AI?</h2><p className="mt-5 text-2xl font-bold leading-9 text-primary-foreground/80">Join thousands of traders earning consistent returns with FastTrade99.</p><div className="mt-9 grid grid-cols-2 gap-6"><Button variant="brand" className="h-[72px] rounded-xl text-xl font-extrabold shadow-button">Start Trading Now <ArrowRight className="size-7" /></Button><Button variant="brandOutline" className="h-[72px] rounded-xl border-primary-foreground/40 bg-transparent text-xl font-extrabold text-primary-foreground hover:bg-card/10">Book a Free Demo <CalendarDays className="size-6" /></Button></div><div className="mt-9 grid grid-cols-4 gap-4 text-sm font-extrabold text-primary-foreground/75">{[[ShieldCheck, "Instant Setup"], [ShieldCheck, "Secure & Encrypted"], [Headphones, "24/7 Support"], [CalendarDays, "Cancel Anytime"]].map(([Icon, text]) => { const FootIcon = Icon as typeof ShieldCheck; return <span key={text as string} className="flex items-center gap-2"><FootIcon className="size-5" />{text as string}</span>; })}</div></div></div></section>
+    <Footer />
   </main>
 );
 
