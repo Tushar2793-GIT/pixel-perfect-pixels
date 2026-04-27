@@ -25,10 +25,11 @@ import {
   UserRound,
   UsersRound,
 } from "lucide-react";
-import heroExact from "@/assets/nontrader-hero-exact.png";
+import heroClean from "@/assets/nontrader-hero-clean.png";
 import phoneVisual from "@/assets/nontrader-phone.png";
-import shieldVisual from "@/assets/nontrader-shield.png";
-import ctaDevice from "@/assets/nontrader-cta-device.png";
+import shieldVisual from "@/assets/nontrader-capital-safe-reference.png";
+import ctaDevice from "@/assets/nontrader-cta-clear.jpg";
+import investorAvatars from "@/assets/nontrader-investor-avatars.jpg";
 import { Button } from "@/components/ui/button";
 
 const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
@@ -95,9 +96,9 @@ const plans = [
 ];
 
 const investorQuotes = [
-  ["I don't have any trading knowledge.\nFastTrade99 handles everything and\nI'm getting consistent monthly returns.", "Ankit Sharma", "Business Owner, Pune", "AS"],
-  ["The dashboard is transparent and returns\nare real. I can see everything in real-time.\nVery happy with the performance.", "Priya Mehta", "Marketing Head, Bengaluru", "PM"],
-  ["I started with small capital and now\nmy portfolio has grown steadily.\nBest decision I made!", "Rohit Verma", "Chartered Accountant, Delhi", "RV"],
+  ["I don't have any trading knowledge.\nFastTrade99 handles everything and\nI'm getting consistent monthly returns.", "Ankit Sharma", "Business Owner, Pune", "left"],
+  ["The dashboard is transparent and returns\nare real. I can see everything in real-time.\nVery happy with the performance.", "Priya Mehta", "Marketing Head, Bengaluru", "center"],
+  ["I started with small capital and now\nmy portfolio has grown steadily.\nBest decision I made!", "Rohit Verma", "Chartered Accountant, Delhi", "right"],
 ];
 
 const Header = () => (
@@ -134,23 +135,23 @@ const NonTraders = () => {
       <Header />
 
       <section className="mx-auto max-w-[1920px] px-6 pb-2 pt-5 2xl:px-8">
-        <div className="grid min-h-[575px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.32fr_0.68fr]">
-          <div className="flex flex-col justify-center px-2 py-8 lg:pl-0 lg:pr-5">
+        <div className="grid min-h-[610px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.31fr_0.69fr]">
+          <div className="flex flex-col justify-center px-6 py-8 lg:px-7 xl:px-9">
             <p className="mb-6 inline-flex w-fit rounded-lg bg-secondary px-3 py-1 text-base font-extrabold uppercase leading-none text-primary">For Non-Traders</p>
-            <h1 className="font-display text-[48px] font-extrabold leading-[1.1] text-brand-navy xl:text-[58px]">
+            <h1 className="font-display text-[clamp(2.65rem,3.05vw,3.6rem)] font-extrabold leading-[1.1] text-brand-navy">
               Invest Smarter.<br /><span className="text-primary">We Handle the Rest.</span>
             </h1>
-            <p className="mt-5 max-w-[440px] text-[21px] font-bold leading-8 text-muted-foreground">Let our AI-powered trading system manage the markets while you relax. No charts. No stress. Just consistent 10–12% monthly returns.</p>
+            <p className="mt-5 max-w-[470px] text-[clamp(1.05rem,1.1vw,1.32rem)] font-bold leading-8 text-muted-foreground">Let our AI-powered trading system manage the markets while you relax. No charts. No stress. Just consistent 10–12% monthly returns.</p>
             <ul className="mt-6 space-y-3">
               {heroChecks.map((item) => <li key={item} className="flex items-center gap-4 text-lg font-extrabold text-brand-navy"><CheckCircle2 className="size-6 shrink-0 fill-primary text-primary-foreground" />{item}</li>)}
             </ul>
-            <div className="mt-8 flex gap-5">
-              <Button variant="brand" className="h-16 rounded-md px-9 text-lg font-extrabold shadow-button">Start Investing Now <ArrowRight className="size-6" /></Button>
-              <Button variant="brandOutline" className="h-16 rounded-md px-8 text-lg font-extrabold text-primary">How It Works <span className="flex size-9 items-center justify-center rounded-full border-2 border-primary"><Play className="ml-0.5 size-4 fill-primary" /></span></Button>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <Button variant="brand" className="h-16 rounded-md px-6 text-base font-extrabold shadow-button xl:text-lg">Start Investing Now <ArrowRight className="size-6" /></Button>
+              <Button variant="brandOutline" className="h-16 rounded-md px-6 text-base font-extrabold text-primary xl:text-lg">How It Works <span className="flex size-9 items-center justify-center rounded-full border-2 border-primary"><Play className="ml-0.5 size-4 fill-primary" /></span></Button>
             </div>
           </div>
-          <div className="relative min-h-[575px] overflow-hidden rounded-xl bg-secondary">
-            <img src={heroExact} alt="Relaxed investor with FastTrade99 investment dashboard" width={1184} height={584} className="h-full w-full object-cover object-center" />
+          <div className="relative min-h-[610px] overflow-hidden rounded-xl bg-secondary">
+            <img src={heroClean} alt="Relaxed investor with FastTrade99 investment dashboard" width={1253} height={696} className="h-full w-full object-cover object-center contrast-[1.04] saturate-[1.08]" />
           </div>
         </div>
 
@@ -181,10 +182,10 @@ const NonTraders = () => {
       </section>
 
       <section className="mx-auto grid max-w-[1920px] gap-5 px-6 py-2 2xl:px-8 xl:grid-cols-[0.48fr_0.52fr]">
-        <div className="rounded-xl border bg-card px-8 py-7 shadow-sm">
+        <div className="rounded-xl border bg-card px-8 py-9 shadow-sm">
           <h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Why Non-Traders Love FastTrade99</h2>
-          <div className="mt-6 grid grid-cols-2 gap-y-8 lg:grid-cols-4">
-            {loveItems.map(([Icon, title, text]) => { const LoveIcon = Icon as typeof UsersRound; return <article key={title as string} className="border-border px-5 text-center lg:border-r [&:nth-child(4n)]:border-r-0"><span className="mx-auto flex size-16 items-center justify-center rounded-full bg-secondary text-primary"><LoveIcon className="size-8" /></span><h3 className="mt-4 whitespace-pre-line text-base font-extrabold leading-5 text-brand-navy">{title as string}</h3><p className="mt-3 whitespace-pre-line text-sm font-bold leading-6 text-muted-foreground">{text as string}</p></article>; })}
+          <div className="mt-8 grid grid-cols-2 gap-y-12 lg:grid-cols-4">
+            {loveItems.map(([Icon, title, text]) => { const LoveIcon = Icon as typeof UsersRound; return <article key={title as string} className="min-h-[168px] border-border px-5 text-center lg:border-r [&:nth-child(4n)]:border-r-0"><span className="mx-auto flex size-16 items-center justify-center rounded-full bg-secondary text-primary"><LoveIcon className="size-8" /></span><h3 className="mt-4 whitespace-pre-line text-base font-extrabold leading-5 text-brand-navy">{title as string}</h3><p className="mt-3 whitespace-pre-line text-sm font-bold leading-6 text-muted-foreground">{text as string}</p></article>; })}
           </div>
         </div>
 
@@ -207,14 +208,14 @@ const NonTraders = () => {
 
       <section className="mx-auto grid max-w-[1920px] gap-5 px-6 py-2 2xl:px-8 xl:grid-cols-[0.3fr_0.24fr_0.46fr]">
         <div className="rounded-xl border bg-card p-7 shadow-sm"><h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">What You Get</h2><div className="mt-6 grid grid-cols-[1fr_0.75fr] items-end gap-5"><ul className="space-y-4">{whatYouGet.map((item)=><li key={item} className="flex items-center gap-4 text-base font-extrabold text-brand-navy"><CheckCircle2 className="size-6 shrink-0 fill-success text-primary-foreground" />{item}</li>)}</ul><img src={phoneVisual} alt="FastTrade99 mobile portfolio dashboard" className="w-full object-contain" /></div></div>
-        <div className="rounded-xl border bg-card p-7 shadow-sm"><h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Your Capital is Safe</h2><div className="mt-5 grid grid-cols-[0.52fr_0.48fr] items-center gap-2"><div className="space-y-6">{safeItems.map(([Icon, text])=>{const SafeIcon=Icon as typeof ShieldCheck; return <div key={text as string} className="flex items-center gap-4"><span className="flex size-14 items-center justify-center rounded-full bg-accent/10 text-success"><SafeIcon className="size-7" /></span><p className="whitespace-pre-line text-base font-extrabold leading-6 text-brand-navy">{text as string}</p></div>})}</div><img src={shieldVisual} alt="Security shield protecting investor capital" className="w-full object-contain" /></div></div>
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm"><img src={shieldVisual} alt="Your capital is safe with funds in your own Demat account and bank-grade security" width={412} height={386} loading="lazy" className="h-full min-h-[360px] w-full object-cover object-center contrast-[1.04] saturate-[1.08]" /></div>
         <div className="rounded-xl border bg-card p-7 shadow-sm"><h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">How Much Do You Need</h2><p className="text-center text-xl font-extrabold text-muted-foreground">Start small. Grow big.</p><div className="mt-8 grid gap-4 lg:grid-cols-4">{plans.map(([name, price, suffix, sub, account, popular])=><article key={name as string} className={`relative rounded-xl border bg-card p-6 text-center shadow-sm transition-all hover:-translate-y-2 hover:border-primary hover:shadow-card ${popular ? "border-primary shadow-card" : ""}`}>{popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-success px-5 py-1 text-xs font-extrabold text-success-foreground">Most Popular</span>}<h3 className="text-lg font-extrabold text-primary">{name as string}</h3><p className="mt-6 font-display text-[34px] font-extrabold leading-none text-brand-navy">{price as string} <span className="text-sm font-bold text-muted-foreground">{suffix as string}</span></p><p className="mt-5 whitespace-pre-line text-sm font-bold leading-6 text-muted-foreground">{sub as string}</p><p className="mt-8 flex items-center justify-center gap-2 text-base font-extrabold text-brand-navy"><Check className="size-5 text-success" />{account as string}</p></article>)}</div><div className="mt-6 grid gap-4 md:grid-cols-4">{[[BadgeIndianRupee,"No Hidden Fees"],[Clock3,"Cancel Anytime"],[Headphones,"24/7 Support"],[UsersRound,"Secure & Trusted"]].map(([Icon,label])=>{const PlanIcon=Icon as typeof ShieldCheck; return <div key={label as string} className="flex items-center justify-center gap-3 rounded-lg border bg-secondary/50 px-4 py-3 text-sm font-extrabold text-brand-navy"><PlanIcon className="size-7 text-primary" />{label as string}</div>})}</div></div>
       </section>
 
       <section className="mx-auto max-w-[1920px] px-6 pb-8 pt-2 2xl:px-8">
-        <div className="rounded-xl border bg-card px-7 py-6 shadow-sm"><h2 className="text-center font-display text-[30px] font-extrabold text-brand-navy">What Our Non-Trader Investors Say</h2><div className="mt-6 grid gap-6 xl:grid-cols-[1fr_1fr_1fr_0.7fr]">{investorQuotes.map(([quote, name, role, initials])=><article key={name as string} className="rounded-xl border bg-card p-7 shadow-sm"><Quote className="size-12 fill-primary text-primary" /><p className="-mt-7 ml-14 whitespace-pre-line text-base font-bold leading-7 text-brand-navy">{quote as string}</p><div className="mt-8 flex items-center gap-5"><span className="flex size-20 items-center justify-center rounded-full bg-secondary font-display text-xl font-extrabold text-primary">{initials as string}</span><div><p className="text-lg font-extrabold text-brand-navy">{name as string}</p><p className="font-bold text-muted-foreground">{role as string}</p><div className="mt-2 flex gap-1">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-5 fill-brand-gold text-brand-gold" />)}</div></div></div></article>)}<aside className="flex flex-col justify-center rounded-xl bg-card p-7"><ShieldCheck className="size-24 text-success" /><p className="mt-6 text-[22px] font-extrabold leading-8 text-brand-navy">Trusted by<br />100+ Non-Trader<br />Investors Across India</p><div className="mt-12 flex gap-2">{Array.from({length:3}).map((_,i)=><Star key={i} className="size-7 fill-brand-gold text-brand-gold" />)}</div><p className="mt-7 text-lg font-bold leading-7 text-muted-foreground">Our average investor retains for 8+ months</p></aside></div></div>
+        <div className="rounded-xl border bg-card px-7 py-6 shadow-sm"><h2 className="text-center font-display text-[30px] font-extrabold text-brand-navy">What Our Non-Trader Investors Say</h2><div className="mt-6 grid gap-6 xl:grid-cols-[1fr_1fr_1fr_0.7fr]">{investorQuotes.map(([quote, name, role, position])=><article key={name as string} className="rounded-xl border bg-card p-7 shadow-sm"><Quote className="size-12 fill-primary text-primary" /><p className="-mt-7 ml-14 whitespace-pre-line text-base font-bold leading-7 text-brand-navy">{quote as string}</p><div className="mt-8 flex items-center gap-5"><span className="size-20 shrink-0 overflow-hidden rounded-full border-4 border-background bg-secondary shadow-sm"><img src={investorAvatars} alt={`${name as string} investor portrait`} width={512} height={512} loading="lazy" className={`h-full w-[300%] max-w-none object-cover ${position === "left" ? "object-left" : position === "center" ? "-translate-x-1/3 object-center" : "-translate-x-2/3 object-right"}`} /></span><div><p className="text-lg font-extrabold text-brand-navy">{name as string}</p><p className="font-bold text-muted-foreground">{role as string}</p><div className="mt-2 flex gap-1">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-5 fill-brand-gold text-brand-gold" />)}</div></div></div></article>)}<aside className="flex flex-col justify-center rounded-xl bg-card p-7"><ShieldCheck className="size-24 text-success" /><p className="mt-6 text-[22px] font-extrabold leading-8 text-brand-navy">Trusted by<br />100+ Non-Trader<br />Investors Across India</p><div className="mt-12 flex gap-2">{Array.from({length:3}).map((_,i)=><Star key={i} className="size-7 fill-brand-gold text-brand-gold" />)}</div><p className="mt-7 text-lg font-bold leading-7 text-muted-foreground">Our average investor retains for 8+ months</p></aside></div></div>
 
-        <div className="mt-5 grid overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.19fr_0.36fr_0.45fr]"><div className="flex items-center justify-center"><img src={ctaDevice} alt="Investor tracking FastTrade99 AI growth dashboard" className="h-full max-h-[205px] object-contain" /></div><div className="flex flex-col justify-center py-9"><h2 className="font-display text-[35px] font-extrabold leading-tight">Ready to Grow Your Wealth with AI?</h2><p className="mt-3 text-[21px] font-bold leading-8 text-primary-foreground/80">Join 100+ investors who trust FastTrade99 to grow their wealth the smart and stress-free way.</p></div><div className="flex flex-col justify-center gap-8 px-8 py-8"><div className="flex gap-6"><Button className="h-[76px] flex-1 rounded-xl bg-accent text-xl font-extrabold text-accent-foreground hover:bg-accent/90">Start Investing Now <ArrowRight className="size-7" /></Button><Button variant="brandOutline" className="h-[76px] flex-1 rounded-xl border-primary-foreground/40 bg-transparent text-xl font-extrabold text-primary-foreground hover:bg-card/10">Book a Free Demo <CalendarDays className="size-6" /></Button></div><div className="grid grid-cols-4 gap-5 text-sm font-extrabold text-primary-foreground/80">{[[BadgeCheck,"Instant Onboarding"],[ShieldCheck,"Secure & Encrypted"],[Clock3,"Withdraw Anytime"],[Headphones,"24/7 Support"]].map(([Icon,label])=>{const CtaIcon=Icon as typeof ShieldCheck; return <span key={label as string} className="flex items-center gap-2"><CtaIcon className="size-5" />{label as string}</span>})}</div></div></div>
+        <div className="mt-5 grid overflow-hidden rounded-xl bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[0.27fr_0.32fr_0.41fr]"><div className="flex items-center justify-center bg-card/5"><img src={ctaDevice} alt="Investor tracking FastTrade99 AI growth dashboard" width={1024} height={512} loading="lazy" className="h-full max-h-[260px] w-full object-cover object-center contrast-[1.06] saturate-[1.1]" /></div><div className="flex flex-col justify-center px-8 py-9"><h2 className="font-display text-[35px] font-extrabold leading-tight">Ready to Grow Your Wealth with AI?</h2><p className="mt-3 text-[21px] font-bold leading-8 text-primary-foreground/80">Join 100+ investors who trust FastTrade99 to grow their wealth the smart and stress-free way.</p></div><div className="flex flex-col justify-center gap-8 px-8 py-8"><div className="flex gap-6"><Button className="h-[76px] flex-1 rounded-xl bg-accent text-xl font-extrabold text-accent-foreground hover:bg-accent/90">Start Investing Now <ArrowRight className="size-7" /></Button><Button variant="brandOutline" className="h-[76px] flex-1 rounded-xl border-primary-foreground/40 bg-transparent text-xl font-extrabold text-primary-foreground hover:bg-card/10">Book a Free Demo <CalendarDays className="size-6" /></Button></div><div className="grid grid-cols-4 gap-5 text-sm font-extrabold text-primary-foreground/80">{[[BadgeCheck,"Instant Onboarding"],[ShieldCheck,"Secure & Encrypted"],[Clock3,"Withdraw Anytime"],[Headphones,"24/7 Support"]].map(([Icon,label])=>{const CtaIcon=Icon as typeof ShieldCheck; return <span key={label as string} className="flex items-center gap-2"><CtaIcon className="size-5" />{label as string}</span>})}</div></div></div>
       </section>
     </main>
   );
