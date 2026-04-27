@@ -25,10 +25,11 @@ import {
   UserRound,
   UsersRound,
 } from "lucide-react";
-import heroExact from "@/assets/nontrader-hero-exact.png";
+import heroClean from "@/assets/nontrader-hero-clean.png";
 import phoneVisual from "@/assets/nontrader-phone.png";
-import shieldVisual from "@/assets/nontrader-shield.png";
-import ctaDevice from "@/assets/nontrader-cta-device.png";
+import shieldVisual from "@/assets/nontrader-capital-safe-reference.png";
+import ctaDevice from "@/assets/nontrader-cta-clear.jpg";
+import investorAvatars from "@/assets/nontrader-investor-avatars.jpg";
 import { Button } from "@/components/ui/button";
 
 const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
@@ -95,9 +96,9 @@ const plans = [
 ];
 
 const investorQuotes = [
-  ["I don't have any trading knowledge.\nFastTrade99 handles everything and\nI'm getting consistent monthly returns.", "Ankit Sharma", "Business Owner, Pune", "AS"],
-  ["The dashboard is transparent and returns\nare real. I can see everything in real-time.\nVery happy with the performance.", "Priya Mehta", "Marketing Head, Bengaluru", "PM"],
-  ["I started with small capital and now\nmy portfolio has grown steadily.\nBest decision I made!", "Rohit Verma", "Chartered Accountant, Delhi", "RV"],
+  ["I don't have any trading knowledge.\nFastTrade99 handles everything and\nI'm getting consistent monthly returns.", "Ankit Sharma", "Business Owner, Pune", "left"],
+  ["The dashboard is transparent and returns\nare real. I can see everything in real-time.\nVery happy with the performance.", "Priya Mehta", "Marketing Head, Bengaluru", "center"],
+  ["I started with small capital and now\nmy portfolio has grown steadily.\nBest decision I made!", "Rohit Verma", "Chartered Accountant, Delhi", "right"],
 ];
 
 const Header = () => (
