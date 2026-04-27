@@ -8,7 +8,7 @@ const navHref = (item: string) =>
   item === "About Us"
     ? "/about"
     : item === "Pricing"
-      ? "/#pricing"
+      ? "/pricing"
       : item === "For Business"
         ? "/business"
         : item === "For Non-Traders"
