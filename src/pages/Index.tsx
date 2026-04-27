@@ -189,10 +189,11 @@ const PlatformPreview = () => (
 );
 
 const AnimatedRobot = () => (
-  <div className="relative mx-auto h-[230px] w-[250px] animate-float">
-    <div className="absolute left-14 top-7 h-28 w-36 rounded-[2.5rem] border bg-card shadow-card"><div className="absolute left-6 top-8 h-10 w-24 rounded-2xl bg-brand-navy"><span className="absolute left-5 top-3 size-4 animate-blink rounded-full bg-primary-glow" /><span className="absolute right-5 top-3 size-4 animate-blink rounded-full bg-primary-glow" /><span className="absolute bottom-2 left-10 h-1.5 w-7 rounded-full bg-success" /></div><span className="absolute -left-3 top-9 h-11 w-5 rounded-full bg-primary" /><span className="absolute -right-3 top-9 h-11 w-5 rounded-full bg-primary" /></div>
-    <div className="absolute left-[86px] top-[122px] h-20 w-20 rounded-[1.5rem] border bg-card shadow-sm"><span className="absolute left-5 top-5 flex size-10 items-center justify-center rounded-full bg-gradient-brand text-sm font-extrabold text-primary-foreground">FT</span></div>
-    <div className="absolute left-4 top-[132px] h-20 w-8 -rotate-12 rounded-full bg-card shadow-sm" /><div className="absolute right-7 top-[118px] h-24 w-8 origin-bottom animate-wave rounded-full bg-card shadow-sm" /><div className="absolute right-3 top-[92px] text-4xl text-primary">✌</div>
+  <div className="relative mx-auto h-[236px] w-[270px] animate-float">
+    <div className="absolute inset-x-8 bottom-1 h-5 rounded-full bg-primary/10 blur-sm" />
+    <div className="absolute left-14 top-5 h-28 w-40 rounded-[2.75rem] border bg-card shadow-card"><div className="absolute left-7 top-8 h-10 w-26 rounded-2xl bg-brand-navy"><span className="absolute left-5 top-3 size-4 animate-blink rounded-full bg-primary-glow" /><span className="absolute right-5 top-3 size-4 animate-blink rounded-full bg-primary-glow" /><span className="absolute bottom-2 left-11 h-1.5 w-8 rounded-full bg-success" /></div><span className="absolute -left-3 top-9 h-11 w-5 rounded-full bg-primary" /><span className="absolute -right-3 top-9 h-11 w-5 rounded-full bg-primary" /></div>
+    <div className="absolute left-[91px] top-[120px] h-20 w-20 rounded-[1.4rem] border bg-card p-3 shadow-sm"><img src={ftCircleLogo} alt="FastTrade99 FT logo" className="size-full rounded-full object-cover" /></div>
+    <div className="absolute left-4 top-[132px] h-20 w-8 -rotate-12 rounded-full bg-card shadow-sm" /><div className="absolute right-8 top-[116px] h-24 w-8 origin-bottom animate-wave rounded-full bg-card shadow-sm" /><div className="absolute right-2 top-[88px] text-4xl text-primary">✌</div>
     <div className="absolute bottom-0 left-16 h-12 w-8 rounded-full bg-primary/20" /><div className="absolute bottom-0 right-16 h-12 w-8 rounded-full bg-primary/20" />
   </div>
 );
