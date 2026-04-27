@@ -44,6 +44,8 @@ All colors MUST be HSL.
     --brand-navy: 238 63% 10%;
     --brand-blue: 245 85% 55%;
     --brand-violet: 254 78% 58%;
+    --brand-orange: 32 92% 58%;
+    --brand-gold: 45 94% 55%;
     --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--brand-violet)));
     --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface)));
     --shadow-card: 0 12px 34px -22px hsl(var(--primary) / 0.45);

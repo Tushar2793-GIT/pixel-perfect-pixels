@@ -37,7 +37,7 @@ const About = () => {
             {navItems.map((item) => (
               <a
                 key={item}
-                href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : "#"}
+                href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : "#"}
                 className={`relative py-10 transition-colors hover:text-primary ${item === "About Us" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
               >
                 {item}
