@@ -2,7 +2,7 @@ import { ArrowRight, BadgeCheck, BrainCircuit, Eye, Flag, Lightbulb, Rocket, Shi
 import aboutTeam from "@/assets/about-team-mixed.jpg";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["How It Works", "Features", "For Traders", "For Business", "Pricing", "About Us"];
+const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
 const stats = [
   ["2023", "Founded"],
@@ -37,7 +37,7 @@ const About = () => {
             {navItems.map((item) => (
               <a
                 key={item}
-                href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : "#"}
+                href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : "#"}
                 className={`relative py-10 transition-colors hover:text-primary ${item === "About Us" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
               >
                 {item}
