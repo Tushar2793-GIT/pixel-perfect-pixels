@@ -1,4 +1,5 @@
 import { Linkedin, Send, ShieldCheck, Twitter, Youtube } from "lucide-react";
+import fastTradeLogo from "@/assets/fasttrade99-logo.png";
 import { Button } from "@/components/ui/button";
 
 const navItems = ["How It Works", "Features", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
@@ -19,10 +20,9 @@ const navHref = (item: string) =>
               : "/#top";
 
 export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
-  <a href="/" className="flex items-center gap-3" aria-label="FastTrade99 home">
-    <span className="flex size-12 items-center justify-center rounded-full bg-gradient-brand text-xl font-extrabold text-primary-foreground shadow-button ring-4 ring-primary/10">FT</span>
-    <span className={`font-display text-[36px] font-extrabold leading-none tracking-normal ${dark ? "text-primary-foreground" : "text-brand-navy"}`}>
-      fasttrade<span className="text-primary-glow">99</span>
+  <a href="/" className="flex items-center" aria-label="FastTrade99 home">
+    <span className={`flex h-16 w-[244px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-3" : "bg-card"}`}>
+      <img src={fastTradeLogo} alt="FastTrade99 AI-powered trading and wealth creation platform" className="h-full w-full object-contain" />
     </span>
   </a>
 );
