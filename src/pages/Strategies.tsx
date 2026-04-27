@@ -97,7 +97,7 @@ const StrategyDashboard = () => (
 
 const Strategies = () => (
   <main className="min-h-screen bg-background text-foreground">
-    <Header />
+    <Header activeItem="Strategies" />
 
     <section className="mx-auto max-w-[1920px] px-5 pb-8 pt-8 lg:px-8 2xl:px-10">
       <div className="grid items-center gap-12 xl:grid-cols-[0.35fr_0.65fr] 2xl:gap-16">
@@ -163,6 +163,7 @@ const Strategies = () => (
         </div>
       </div>
     </section>
+    <Footer />
   </main>
 );
 
