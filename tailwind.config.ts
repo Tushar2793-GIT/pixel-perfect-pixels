@@ -52,6 +52,8 @@ export default {
           navy: "hsl(var(--brand-navy))",
           blue: "hsl(var(--brand-blue))",
           violet: "hsl(var(--brand-violet))",
+          orange: "hsl(var(--brand-orange))",
+          gold: "hsl(var(--brand-gold))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
