@@ -284,14 +284,14 @@ const Business = () => {
         <div className="grid gap-5 xl:grid-cols-[1fr_0.47fr]">
           <div className="grid gap-5 lg:grid-cols-4">
             {partnerPlans.map(([name, sub, label, value, suffix, features, tone, cta]) => (
-              <article key={name as string} className={`rounded-lg border bg-card p-8 text-center shadow-sm ${tone === "success" ? "border-accent/30" : tone === "orange" ? "border-[hsl(32_92%_58%_/_0.35)]" : ""}`}>
-                <h3 className={`font-display text-[25px] font-extrabold ${tone === "success" ? "text-success" : tone === "orange" ? "text-[hsl(32_92%_58%)]" : "text-primary"}`}>{name as string}</h3>
+              <article key={name as string} className={`rounded-lg border bg-card p-8 text-center shadow-sm ${tone === "success" ? "border-accent/30" : tone === "orange" ? "border-brand-orange/35" : ""}`}>
+                <h3 className={`font-display text-[25px] font-extrabold ${tone === "success" ? "text-success" : tone === "orange" ? "text-brand-orange" : "text-primary"}`}>{name as string}</h3>
                 <p className="mt-2 text-sm font-bold text-muted-foreground">{sub as string}</p>
                 <p className="mt-6 text-base font-extrabold text-brand-navy">{label as string}</p>
                 <p className={`mt-3 font-display text-[42px] font-extrabold leading-none ${tone === "success" ? "text-success" : "text-brand-navy"}`}>{value as string}</p>
                 {suffix && <p className="mt-2 text-base font-bold text-muted-foreground">{suffix as string}</p>}
-                <ul className="mt-7 space-y-4 text-left text-sm font-bold text-muted-foreground">{(features as string[]).map((feature) => <li key={feature} className="flex items-center gap-3"><Check className={`size-4 ${tone === "success" ? "text-success" : tone === "orange" ? "text-[hsl(32_92%_58%)]" : "text-primary"}`} />{feature}</li>)}</ul>
-                <Button variant="brandOutline" className={`mt-7 h-14 w-full rounded-md text-lg font-extrabold ${tone === "success" ? "border-accent/30 text-success" : tone === "orange" ? "border-[hsl(32_92%_58%_/_0.35)] text-[hsl(32_92%_58%)]" : "text-primary"}`}>{cta as string}</Button>
+                <ul className="mt-7 space-y-4 text-left text-sm font-bold text-muted-foreground">{(features as string[]).map((feature) => <li key={feature} className="flex items-center gap-3"><Check className={`size-4 ${tone === "success" ? "text-success" : tone === "orange" ? "text-brand-orange" : "text-primary"}`} />{feature}</li>)}</ul>
+                <Button variant="brandOutline" className={`mt-7 h-14 w-full rounded-md text-lg font-extrabold ${tone === "success" ? "border-accent/30 text-success" : tone === "orange" ? "border-brand-orange/35 text-brand-orange" : "text-primary"}`}>{cta as string}</Button>
               </article>
             ))}
           </div>
@@ -305,7 +305,7 @@ const Business = () => {
         </div>
         <div className="mt-2 grid gap-4 rounded-lg bg-brand-navy p-6 text-primary-foreground lg:grid-cols-[0.68fr_0.32fr]">
           <div><h3 className="font-display text-xl font-extrabold">Trusted by Businesses Across India</h3><div className="mt-5 grid grid-cols-6 gap-5">{[[ShieldCheck,"₹4Cr+","Capital Deployed"],[UsersRound,"99+","Active Accounts"],[ChartNoAxesCombined,"10–12%","Average Monthly Returns"],[Target,"72%+","Win Rate"],[CircleGauge,"24/7","AI Trading"],[BriefcaseBusiness,"100%","Transparency"]].map(([Icon,value,label])=>{const TrustIcon=Icon as typeof ShieldCheck; return <div key={label as string} className="flex items-center gap-3"><TrustIcon className="size-8 text-primary"/><div><p className="font-display text-2xl font-extrabold">{value as string}</p><p className="text-xs font-bold text-primary-foreground/70">{label as string}</p></div></div>})}</div></div>
-          <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-10 fill-primary text-primary"/><p className="-mt-7 ml-14 text-base font-bold leading-6 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-3 ml-14 flex gap-1">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-6 fill-[hsl(45_94%_55%)] text-[hsl(45_94%_55%)]" />)}</div></div>
+          <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-10 fill-primary text-primary"/><p className="-mt-7 ml-14 text-base font-bold leading-6 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-3 ml-14 flex gap-1">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-6 fill-brand-gold text-brand-gold" />)}</div></div>
         </div>
       </section>
     </main>
