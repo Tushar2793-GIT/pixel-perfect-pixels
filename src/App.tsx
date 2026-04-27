@@ -7,6 +7,7 @@ import About from "./pages/About.tsx";
 import Business from "./pages/Business.tsx";
 import Index from "./pages/Index.tsx";
 import NonTraders from "./pages/NonTraders.tsx";
+import Pricing from "./pages/Pricing.tsx";
 import Strategies from "./pages/Strategies.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Traders from "./pages/Traders.tsx";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/strategies" element={<Strategies />} />
           <Route path="/traders" element={<Traders />} />
           <Route path="/non-traders" element={<NonTraders />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
