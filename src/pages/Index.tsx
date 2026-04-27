@@ -1,118 +1,178 @@
-import { ArrowUpRight, BarChart3, CalendarDays, Check, ChevronDown, LineChart, ShieldCheck, Sparkles, Zap } from "lucide-react";
+import { useMemo, useState } from "react";
+import { BadgeIndianRupee, CheckCircle2, Headphones, RotateCcw, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = ["How It Works", "Features", "For Traders", "For Non-Traders", "For Business", "Pricing"];
-
-const stats = [
-  ["₹4Cr+", "Capital Deployed"],
-  ["99+", "Active Accounts"],
-  ["10–12%", "Average Monthly Returns"],
-  ["72%+", "Win Rate"],
-];
-
-const steps = ["AI Scans Market", "Strategy Selection", "Auto Trade Execution", "Profit Optimization"];
-
-const strategies = [
-  ["Momentum Pro", "+12.35%", "78", "74.36%"],
-  ["AI Swing", "+9.80%", "65", "70.12%"],
-  ["Multi Average", "+8.92%", "54", "69.44%"],
-  ["Alpha Breakout", "+10.15%", "61", "73.77%"],
-];
+const navItems = ["How It Works", "Features", "For Traders", "For Traders", "For Business", "Pricing"];
 
 const plans = [
-  { name: "STARTER", price: "₹ 999", sub: "Perfect for beginners", features: ["Real-time Market Data", "Basic Charts & Indicators", "1 Strategy", "1 Exchange", "Email Support"] },
-  { name: "TRADER", price: "₹ 2,499", sub: "For active traders", features: ["Advanced Charts", "Technical Indicators", "5 Strategies", "3 Exchanges", "Priority Support"] },
-  { name: "PROFESSIONAL", price: "₹ 4,999", sub: "For serious traders", popular: true, features: ["Algo Trading", "Unlimited Strategies", "All Exchanges", "Advanced Analytics", "Priority + Call Support"] },
-  { name: "BUSINESS", price: "Custom", sub: "For businesses & teams", features: ["Multi-Account Management", "API & White Label", "Custom Integrations", "Dedicated RM", "SLA & Premium Support"] },
+  {
+    name: "STARTER",
+    monthlyPrice: 999,
+    sub: "Perfect for beginners",
+    features: ["Real-time Market Data", "Basic Charts & Indicators", "1 Strategy", "1 Exchange", "Email Support"],
+  },
+  {
+    name: "TRADER",
+    monthlyPrice: 2499,
+    sub: "For active traders",
+    features: ["Advanced Charts", "Technical Indicators", "5 Strategies", "3 Exchanges", "Priority Support"],
+  },
+  {
+    name: "PROFESSIONAL",
+    monthlyPrice: 4999,
+    sub: "For serious traders",
+    popular: true,
+    features: ["Algo Trading", "Unlimited Strategies", "All Exchanges", "Advanced Analytics", "Priority + Call Support"],
+  },
+  {
+    name: "BUSINESS",
+    monthlyPrice: null,
+    sub: "For businesses & teams",
+    features: ["Multi-Account Management", "API & White Label", "Custom Integrations", "Dedicated RM", "SLA & Premium Support"],
+  },
 ];
 
-const values = ["Innovation First", "Transparency Always", "Customer Success", "Integrity & Security"];
+const benefits = [
+  [BadgeIndianRupee, "No Hidden Fees", "Transparent pricing"],
+  [ShieldCheck, "Secure & Compliant", "Bank-grade security"],
+  [RotateCcw, "Cancel Anytime", "No long-term lock-in"],
+  [Headphones, "24/7 Support", "We're here to help"],
+];
+
+const formatRupees = (amount: number) => `₹ ${Math.round(amount).toLocaleString("en-IN")}`;
 
 const Index = () => {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
+
+  const pricedPlans = useMemo(
+    () =>
+      plans.map((plan) => ({
+        ...plan,
+        price:
+          plan.monthlyPrice === null
+            ? "Custom"
+            : billingCycle === "monthly"
+              ? formatRupees(plan.monthlyPrice)
+              : formatRupees(plan.monthlyPrice * 12 * 0.8),
+        suffix: plan.monthlyPrice === null ? "" : billingCycle === "monthly" ? "/month" : "/year",
+      })),
+    [billingCycle],
+  );
+
   return (
-    <main className="min-h-screen overflow-hidden bg-gradient-soft text-foreground">
-      <header className="sticky top-0 z-50 border-b bg-card/95 backdrop-blur">
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background text-foreground">
+      <header className="border-b bg-card/95 shadow-sm backdrop-blur">
+        <nav className="mx-auto flex h-[102px] max-w-[1360px] items-center justify-between px-5 lg:h-[102px] lg:px-6">
           <a href="#top" className="flex items-center gap-3" aria-label="FastTrade99 home">
-            <span className="flex size-11 items-center justify-center rounded-full bg-gradient-brand text-lg font-extrabold text-primary-foreground shadow-button">FT</span>
-            <span className="font-display text-2xl font-bold tracking-normal text-brand-navy">fasttrade<span className="text-primary">99</span></span>
+            <span className="flex size-11 items-center justify-center rounded-full bg-gradient-brand text-lg font-extrabold text-primary-foreground shadow-button ring-4 ring-secondary">FT</span>
+            <span className="font-display text-[34px] font-extrabold leading-none tracking-normal text-brand-navy">
+              fasttrade<span className="text-primary">99</span>
+            </span>
           </a>
-          <div className="hidden items-center gap-8 text-sm font-bold text-brand-navy lg:flex">
-            {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().split(" ").join("-")}`} className="transition-colors hover:text-primary">{item}</a>)}
+          <div className="hidden items-center gap-9 text-sm font-extrabold text-brand-navy lg:flex">
+            {navItems.map((item, index) => (
+              <a
+                key={`${item}-${index}`}
+                href={item === "Pricing" ? "#pricing" : "#"}
+                className={`relative py-10 transition-colors hover:text-primary ${item === "Pricing" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
+              >
+                {item}
+              </a>
+            ))}
           </div>
-          <Button variant="brand" size="lg">Sign Up</Button>
+          <Button variant="brand" size="lg" className="h-14 rounded-md px-8 text-base shadow-button">
+            Sign Up
+          </Button>
         </nav>
       </header>
 
-      <section id="top" className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-20">
-        <div className="flex flex-col justify-center">
-          <p className="mb-4 text-sm font-extrabold uppercase tracking-widest text-primary">For Traders</p>
-          <h1 className="font-display text-5xl font-extrabold leading-tight text-brand-navy sm:text-6xl">Trade Like Institutions. Execute Like AI.</h1>
-          <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-muted-foreground">AI-powered strategies, automated execution and risk-managed trading for consistent 10–12% monthly returns.</p>
-          <div className="mt-7 flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
-            {stats.map(([value, label]) => <span key={label} className="rounded-md border bg-card px-4 py-3 shadow-sm"><b className="text-primary">{value}</b> {label}</span>)}
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button variant="brand" size="xl">Start Trading Now <ArrowUpRight /></Button>
-            <Button variant="brandOutline" size="xl">View Live Performance <BarChart3 /></Button>
-          </div>
+      <section id="pricing" className="mx-auto max-w-[1360px] px-3 pb-8 pt-6 sm:px-5 lg:px-3">
+        <div className="text-center">
+          <p className="text-sm font-extrabold uppercase tracking-widest text-primary">Pricing</p>
+          <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight text-brand-navy sm:text-[46px]">
+            Simple Pricing. Powerful Value.
+          </h1>
+          <p className="mt-4 text-base font-bold text-muted-foreground">Choose the perfect plan for your trading journey.</p>
         </div>
-        <div className="relative animate-float rounded-lg border bg-card p-5 shadow-card motion-reduce:animate-none">
-          <div className="mb-4 flex items-center justify-between border-b pb-4">
-            <div><p className="text-sm font-extrabold text-primary">Live Performance This Month</p><h2 className="font-display text-3xl font-bold text-brand-navy">+10.68%</h2></div>
-            <ChevronDown className="text-primary" />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {["Total P&L|₹42,72,380|vs Last Month +9.21%", "Capital Deployed|₹4,12,35,450|+18.45%", "Active Accounts|99+|+12 This Month"].map((item) => {
-              const [a, b, c] = item.split("|");
-              return <div key={a} className="rounded-md bg-secondary p-4"><p className="text-xs font-bold text-muted-foreground">{a}</p><p className="mt-2 font-display text-xl font-extrabold text-brand-navy">{b}</p><p className="mt-1 text-xs font-bold text-success">{c}</p></div>;
-            })}
-          </div>
-          <div className="mt-5 h-48 rounded-md border bg-surface p-4">
-            <div className="flex h-full items-end gap-2">
-              {[28, 44, 36, 62, 54, 78, 68, 90, 82, 96, 88, 100].map((h, i) => <span key={i} className="flex-1 rounded-t-sm bg-gradient-brand" style={{ height: `${h}%` }} />)}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="features" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-5 md:grid-cols-4">
-          {[[Sparkles, "AI Momentum Engine", "Detects market strength and builds high-probability watchlists."], [Zap, "Auto Execution Engine", "TradingView signal integration with instant multi-account sync."], [ShieldCheck, "Risk Management", "Capital protection, smart averaging and drawdown control."], [LineChart, "Performance Analytics", "Real-time P&L, reports and strategy-level insights."]].map(([Icon, title, text]) => {
-            const FeatureIcon = Icon as typeof Sparkles;
-            return <article key={title as string} className="rounded-lg border bg-card p-6 shadow-card transition-transform hover:-translate-y-1"><FeatureIcon className="mb-4 text-primary" /><h3 className="font-display text-lg font-extrabold text-brand-navy">{title as string}</h3><p className="mt-2 text-sm font-medium leading-6 text-muted-foreground">{text as string}</p></article>;
+        <div className="mx-auto mt-5 grid w-full max-w-[494px] grid-cols-[1fr_1fr_auto] rounded-lg border bg-card p-1 shadow-sm">
+          <button
+            type="button"
+            onClick={() => setBillingCycle("monthly")}
+            className={`h-12 rounded-md px-6 text-sm font-extrabold transition-all ${billingCycle === "monthly" ? "bg-gradient-brand text-primary-foreground shadow-button" : "text-brand-navy hover:bg-secondary"}`}
+          >
+            Monthly Billing
+          </button>
+          <button
+            type="button"
+            onClick={() => setBillingCycle("annual")}
+            className={`h-12 rounded-md px-6 text-sm font-extrabold transition-all ${billingCycle === "annual" ? "bg-gradient-brand text-primary-foreground shadow-button" : "text-brand-navy hover:bg-secondary"}`}
+          >
+            Annual Billing
+          </button>
+          <button
+            type="button"
+            onClick={() => setBillingCycle("annual")}
+            className="h-12 whitespace-nowrap rounded-md px-4 text-sm font-extrabold text-success transition-colors hover:bg-secondary"
+          >
+            Save 20%
+          </button>
+        </div>
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-4">
+          {pricedPlans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`group relative flex min-h-[640px] flex-col rounded-lg border bg-card px-8 py-10 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:bg-secondary hover:shadow-card ${plan.popular ? "border-primary bg-secondary shadow-card" : ""}`}
+            >
+              {plan.popular && (
+                <span className="absolute -top-3 right-7 rounded-sm bg-gradient-brand px-5 py-1 text-xs font-extrabold text-primary-foreground shadow-button">
+                  Most Popular
+                </span>
+              )}
+              <p className="font-display text-sm font-extrabold uppercase tracking-normal text-primary">{plan.name}</p>
+              <div className="mt-8 flex items-end gap-2">
+                <h2 className="font-display text-[42px] font-extrabold leading-none text-brand-navy">{plan.price}</h2>
+                {plan.suffix && <span className="pb-1 text-base font-bold text-muted-foreground">{plan.suffix}</span>}
+              </div>
+              <p className="mt-6 text-base font-bold text-muted-foreground">{plan.sub}</p>
+
+              <ul className="mt-10 space-y-6">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-4 text-[15px] font-bold leading-5 text-brand-navy">
+                    <CheckCircle2 className="size-5 shrink-0 fill-secondary text-primary transition-transform group-hover:scale-110" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto pt-14">
+                <Button className="h-16 w-full text-base font-extrabold" variant={plan.popular ? "brand" : "brandOutline"} size="lg">
+                  {plan.name === "BUSINESS" ? "Contact Sales" : "Get Started"}
+                </Button>
+                <p className="mt-5 text-center text-sm font-extrabold text-primary">
+                  {plan.name === "BUSINESS" ? "Let's Talk" : billingCycle === "monthly" ? "7-Day Free Trial" : "20% Annual Savings Applied"}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {benefits.map(([Icon, title, text]) => {
+            const BenefitIcon = Icon as typeof BadgeIndianRupee;
+            return (
+              <article key={title as string} className="flex items-center gap-5 rounded-lg border bg-card px-8 py-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card">
+                <span className="flex size-14 shrink-0 items-center justify-center rounded-full border bg-secondary text-primary">
+                  <BenefitIcon className="size-7" />
+                </span>
+                <div>
+                  <h2 className="font-display text-lg font-extrabold text-brand-navy">{title as string}</h2>
+                  <p className="mt-1 text-base font-bold text-muted-foreground">{text as string}</p>
+                </div>
+              </article>
+            );
           })}
-        </div>
-      </section>
-
-      <section id="how-it-works" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center"><h2 className="font-display text-4xl font-extrabold text-brand-navy">How FastTrade99 Works</h2><p className="mt-2 font-semibold text-muted-foreground">AI-driven. Rule-based. Emotion-free.</p></div>
-        <div className="grid gap-5 md:grid-cols-4">
-          {steps.map((step, i) => <div key={step} className="rounded-lg border bg-card p-6 shadow-card"><span className="flex size-10 items-center justify-center rounded-full bg-gradient-brand font-bold text-primary-foreground">{i + 1}</span><h3 className="mt-5 font-display text-xl font-extrabold text-brand-navy">{step}</h3><p className="mt-2 text-sm font-medium leading-6 text-muted-foreground">Signals generated, risk evaluated, and orders handled instantly with zero manual delay.</p></div>)}
-        </div>
-      </section>
-
-      <section id="pricing" className="border-y bg-card py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center"><p className="text-sm font-extrabold uppercase tracking-widest text-primary">Pricing</p><h2 className="mt-3 font-display text-4xl font-extrabold text-brand-navy">Simple Pricing. Powerful Value.</h2><p className="mt-3 font-semibold text-muted-foreground">Choose the perfect plan for your trading journey.</p></div>
-          <div className="mx-auto mt-6 flex w-fit rounded-md border bg-background p-1"><button className="rounded-md bg-gradient-brand px-8 py-3 text-sm font-bold text-primary-foreground shadow-button">Monthly Billing</button><button className="px-8 py-3 text-sm font-bold text-brand-navy">Annual Billing <span className="ml-3 text-success">Save 20%</span></button></div>
-          <div className="mt-8 grid gap-5 lg:grid-cols-4">
-            {plans.map((plan) => <article key={plan.name} className={`relative rounded-lg border bg-card p-7 shadow-card ${plan.popular ? "border-primary bg-secondary" : ""}`}>{plan.popular && <span className="absolute -top-3 right-5 rounded-sm bg-gradient-brand px-4 py-1 text-xs font-bold text-primary-foreground">Most Popular</span>}<p className="font-display text-sm font-extrabold text-primary">{plan.name}</p><h3 className="mt-5 font-display text-3xl font-extrabold text-brand-navy">{plan.price} <span className="text-sm font-semibold text-muted-foreground">{plan.price !== "Custom" ? "/month" : ""}</span></h3><p className="mt-4 font-semibold text-muted-foreground">{plan.sub}</p><ul className="mt-7 space-y-4">{plan.features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm font-bold text-brand-navy"><Check className="size-4 text-primary" />{feature}</li>)}</ul><Button className="mt-10 w-full" variant={plan.popular ? "brand" : "brandOutline"} size="lg">{plan.name === "BUSINESS" ? "Contact Sales" : "Get Started"}</Button><p className="mt-4 text-center text-sm font-bold text-primary">{plan.name === "BUSINESS" ? "Let's Talk" : "7-Day Free Trial"}</p></article>)}
-          </div>
-        </div>
-      </section>
-
-      <section id="for-business" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-5 md:grid-cols-3">
-          {["Our Mission|To empower traders and investors with AI-driven tools and consistent wealth.", "Our Vision|To be the world's trusted multi-broker trading platform that democratizes financial freedom.", "Our Values|Innovation First, Transparency Always, Customer Success, Integrity & Security"].map((item) => { const [title, text] = item.split("|"); return <article key={title} className="rounded-lg border bg-card p-6 shadow-card"><h3 className="font-display text-lg font-extrabold text-brand-navy">{title}</h3><p className="mt-3 text-sm font-semibold leading-6 text-muted-foreground">{text}</p></article>; })}
-        </div>
-        <div className="mt-8 rounded-lg border bg-surface p-6 shadow-card"><h3 className="text-center font-display font-extrabold text-primary">Our Journey</h3><div className="mt-6 grid gap-4 md:grid-cols-5">{["2023|FastTrade99 Founded", "2023|Launched AI-Powered Strategies", "2024|10K+ Active Users", "2024|Multi-Broker Integration", "2025|50K+ Users & Growing"].map((item) => { const [year, text] = item.split("|"); return <div key={text} className="text-center"><div className="mx-auto flex size-12 items-center justify-center rounded-full bg-secondary font-bold text-primary">{year}</div><p className="mt-3 text-xs font-extrabold text-brand-navy">{text}</p></div>; })}</div></div>
-      </section>
-
-      <section id="about-us" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 rounded-lg bg-gradient-brand p-6 text-primary-foreground shadow-button md:grid-cols-[1fr_auto] md:items-center">
-          <div className="flex items-center gap-4"><CalendarDays className="size-10" /><div><h2 className="font-display text-2xl font-extrabold">We're just getting started.</h2><p className="font-semibold opacity-90">Join us as we build the future of smart trading.</p></div></div>
-          <Button variant="secondary" size="lg">Join Our Journey</Button>
         </div>
       </section>
     </main>
