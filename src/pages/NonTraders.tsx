@@ -135,23 +135,23 @@ const NonTraders = () => {
       <Header />
 
       <section className="mx-auto max-w-[1920px] px-6 pb-2 pt-5 2xl:px-8">
-        <div className="grid min-h-[575px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.32fr_0.68fr]">
-          <div className="flex flex-col justify-center px-2 py-8 lg:pl-0 lg:pr-5">
+        <div className="grid min-h-[610px] overflow-hidden rounded-xl border bg-card shadow-sm lg:grid-cols-[0.31fr_0.69fr]">
+          <div className="flex flex-col justify-center px-6 py-8 lg:px-7 xl:px-9">
             <p className="mb-6 inline-flex w-fit rounded-lg bg-secondary px-3 py-1 text-base font-extrabold uppercase leading-none text-primary">For Non-Traders</p>
-            <h1 className="font-display text-[48px] font-extrabold leading-[1.1] text-brand-navy xl:text-[58px]">
+            <h1 className="font-display text-[clamp(2.65rem,3.05vw,3.6rem)] font-extrabold leading-[1.1] text-brand-navy">
               Invest Smarter.<br /><span className="text-primary">We Handle the Rest.</span>
             </h1>
-            <p className="mt-5 max-w-[440px] text-[21px] font-bold leading-8 text-muted-foreground">Let our AI-powered trading system manage the markets while you relax. No charts. No stress. Just consistent 10–12% monthly returns.</p>
+            <p className="mt-5 max-w-[470px] text-[clamp(1.05rem,1.1vw,1.32rem)] font-bold leading-8 text-muted-foreground">Let our AI-powered trading system manage the markets while you relax. No charts. No stress. Just consistent 10–12% monthly returns.</p>
             <ul className="mt-6 space-y-3">
               {heroChecks.map((item) => <li key={item} className="flex items-center gap-4 text-lg font-extrabold text-brand-navy"><CheckCircle2 className="size-6 shrink-0 fill-primary text-primary-foreground" />{item}</li>)}
             </ul>
-            <div className="mt-8 flex gap-5">
-              <Button variant="brand" className="h-16 rounded-md px-9 text-lg font-extrabold shadow-button">Start Investing Now <ArrowRight className="size-6" /></Button>
-              <Button variant="brandOutline" className="h-16 rounded-md px-8 text-lg font-extrabold text-primary">How It Works <span className="flex size-9 items-center justify-center rounded-full border-2 border-primary"><Play className="ml-0.5 size-4 fill-primary" /></span></Button>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <Button variant="brand" className="h-16 rounded-md px-6 text-base font-extrabold shadow-button xl:text-lg">Start Investing Now <ArrowRight className="size-6" /></Button>
+              <Button variant="brandOutline" className="h-16 rounded-md px-6 text-base font-extrabold text-primary xl:text-lg">How It Works <span className="flex size-9 items-center justify-center rounded-full border-2 border-primary"><Play className="ml-0.5 size-4 fill-primary" /></span></Button>
             </div>
           </div>
-          <div className="relative min-h-[575px] overflow-hidden rounded-xl bg-secondary">
-            <img src={heroExact} alt="Relaxed investor with FastTrade99 investment dashboard" width={1184} height={584} className="h-full w-full object-cover object-center" />
+          <div className="relative min-h-[610px] overflow-hidden rounded-xl bg-secondary">
+            <img src={heroClean} alt="Relaxed investor with FastTrade99 investment dashboard" width={1253} height={696} className="h-full w-full object-cover object-center contrast-[1.04] saturate-[1.08]" />
           </div>
         </div>
 
