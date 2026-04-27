@@ -114,7 +114,7 @@ const Header = () => (
         {navItems.map((item) => (
           <a
             key={item}
-            href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : "#"}
+            href={item === "About Us" ? "/about" : item === "Pricing" ? "/#pricing" : item === "For Business" ? "/business" : item === "For Non-Traders" ? "/non-traders" : item === "For Traders" ? "/traders" : "#"}
             className={`relative py-7 transition-colors hover:text-primary ${item === "For Non-Traders" ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
           >
             {item}
