@@ -127,13 +127,13 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 );
 
 const BrokerStrip = () => (
-  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+  <div className="mt-4 grid max-w-[880px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-12 w-full max-w-[150px] object-contain" />
+      <div key={broker.name} className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-11 w-full max-w-[156px] object-contain" />
       </div>
     ))}
-    <div className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 text-lg font-extrabold text-primary shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">+ More</div>
+    <div className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 text-lg font-extrabold text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:text-primary hover:shadow-card">+ More</div>
   </div>
 );
 
@@ -167,12 +167,12 @@ const DashboardMockup = () => (
 
 const AudienceVisual = ({ title }: { title: string }) => {
   if (title === "For Traders") {
-    return <div className="w-full rounded-lg bg-brand-navy p-4 text-primary-foreground shadow-card"><p className="mb-3 font-extrabold">Strategy Builder</p>{[["If", ""], ["Else", "Condition"], ["Then", "Buy"], ["Else", "Sell"]].map(([a,b], i) => <div key={`${a}-${i}`} className="mb-3 rounded-md bg-primary-foreground/10 px-4 py-2 font-extrabold"><span className={`rounded px-3 py-1 text-xs ${i === 2 ? "bg-success" : i === 3 ? "bg-destructive" : "bg-primary"}`}>{a}</span> {b}</div>)}</div>;
+    return <div className="w-full max-w-[260px] rounded-lg bg-brand-navy p-4 text-primary-foreground shadow-card"><p className="mb-3 font-extrabold">Strategy Builder</p>{[["If", ""], ["Else", "Condition"], ["Then", "Buy"], ["Else", "Sell"]].map(([a,b], i) => <div key={`${a}-${i}`} className="mb-3 rounded-md bg-primary-foreground/10 px-4 py-2 font-extrabold"><span className={`rounded px-3 py-1 text-xs ${i === 2 ? "bg-success" : i === 3 ? "bg-destructive" : "bg-primary"}`}>{a}</span> {b}</div>)}</div>;
   }
   if (title === "For Non-Traders") {
-    return <div className="relative h-56 w-full overflow-hidden rounded-md bg-gradient-soft shadow-sm"><div className="absolute left-12 top-8 flex size-20 items-center justify-center rounded-lg bg-card shadow-card"><Bot className="size-14 text-primary" /></div><div className="absolute bottom-8 left-20 h-16 w-10 rounded-t bg-success/25" /><div className="absolute bottom-8 left-36 h-24 w-10 rounded-t bg-success/35" /><div className="absolute bottom-8 left-52 h-32 w-10 rounded-t bg-success/55" /><TrendingUp className="absolute bottom-9 right-8 size-32 stroke-[4] text-success" /></div>;
+    return <div className="relative h-56 w-full max-w-[280px] overflow-hidden rounded-md bg-gradient-soft shadow-sm"><div className="absolute left-8 top-8 flex size-20 items-center justify-center rounded-lg bg-card shadow-card"><Bot className="size-14 text-primary" /></div><div className="absolute bottom-8 left-16 h-16 w-10 rounded-t bg-success/25" /><div className="absolute bottom-8 left-32 h-24 w-10 rounded-t bg-success/35" /><div className="absolute bottom-8 left-48 h-32 w-10 rounded-t bg-success/55" /><TrendingUp className="absolute bottom-9 right-5 size-28 stroke-[4] text-success" /></div>;
   }
-  return <div className="relative flex h-56 w-full items-center justify-center"><div className="absolute size-44 rounded-full border-2 border-primary/25" /><div className="absolute size-28 rounded-full border border-primary/10 bg-primary/5" /><BriefcaseBusiness className="relative z-10 size-24 rounded-xl bg-secondary p-3 text-primary" />{Array.from({ length: 6 }).map((_, i) => <Users key={i} className="absolute size-10 rounded-full bg-background p-2 text-primary shadow-sm" style={{ left: `${48 + Math.cos((i / 6) * Math.PI * 2) * 78}px`, top: `${86 + Math.sin((i / 6) * Math.PI * 2) * 78}px` }} />)}</div>;
+  return <div className="relative flex h-56 w-full max-w-[280px] items-center justify-center overflow-hidden"><div className="absolute size-44 rounded-full border-2 border-primary/25" /><div className="absolute size-28 rounded-full border border-primary/10 bg-primary/5" /><BriefcaseBusiness className="relative z-10 size-24 rounded-xl bg-secondary p-3 text-primary" />{Array.from({ length: 6 }).map((_, i) => <Users key={i} className="absolute size-10 rounded-full bg-background p-2 text-primary shadow-sm" style={{ left: `calc(50% - 20px + ${Math.cos((i / 6) * Math.PI * 2) * 78}px)`, top: `calc(50% - 20px + ${Math.sin((i / 6) * Math.PI * 2) * 78}px)` }} />)}</div>;
 };
 
 const PlatformPreview = () => (
@@ -218,8 +218,8 @@ const Index = () => (
       <div className="text-center"><p className="text-lg font-extrabold uppercase text-primary">Built For Everyone</p><h2 className="mt-3 font-display text-4xl font-extrabold text-brand-navy">One Platform. Endless Possibilities.</h2></div>
       <div className="mt-7 grid gap-6 xl:grid-cols-3">
         {audienceCards.map(({ title, text, tone, Icon, bullets }) => (
-          <article key={title} className={`grid min-h-[340px] gap-5 rounded-xl border p-7 shadow-sm lg:grid-cols-[1fr_230px] ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
-            <div><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div><h3 className={`font-display text-3xl font-extrabold ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold text-brand-navy"><Check className={`size-6 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} />{b}</li>)}</ul></div>
+          <article key={title} className={`grid min-h-[430px] gap-6 rounded-xl border p-7 shadow-sm lg:grid-cols-[minmax(0,0.92fr)_minmax(190px,0.72fr)] ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
+            <div className="min-w-0"><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div className="min-w-0"><h3 className={`font-display text-[clamp(1.7rem,1.7vw,2.35rem)] font-extrabold leading-tight ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold leading-6 text-brand-navy"><Check className={`size-6 shrink-0 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} /><span>{b}</span></li>)}</ul></div>
             <div className="flex items-end justify-center"><AudienceVisual title={title} /></div>
           </article>
         ))}
