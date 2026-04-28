@@ -127,13 +127,13 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 );
 
 const BrokerStrip = () => (
-  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-7">
+  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[72px] items-center justify-center rounded-md border border-primary/15 bg-card px-5 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="max-h-12 max-w-[132px] object-contain" />
+      <div key={broker.name} className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-12 w-full max-w-[150px] object-contain" />
       </div>
     ))}
-    <div className="flex h-[72px] items-center justify-center rounded-md border border-primary/15 bg-card px-4 text-lg font-extrabold text-primary shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">+ More</div>
+    <div className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 text-lg font-extrabold text-primary shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">+ More</div>
   </div>
 );
 
@@ -232,7 +232,7 @@ const Index = () => (
       </div>
     </section>
 
-    <section className="mt-4 bg-brand-navy px-5 py-12 text-primary-foreground lg:px-8 2xl:px-10">
+    <section id="risk-management" className="mt-4 bg-brand-navy px-5 py-12 text-primary-foreground lg:px-8 2xl:px-10">
       <div className="mx-auto grid max-w-[1920px] items-center gap-7 xl:grid-cols-[0.65fr_repeat(3,1fr)_0.65fr]"><div><p className="text-xl font-extrabold uppercase text-primary-glow">Multi-Level Risk Management</p><h2 className="mt-6 font-display text-5xl font-extrabold leading-tight">Protect Capital.<br />Maximize Returns.</h2><p className="mt-6 text-xl font-bold leading-8 text-primary-foreground/72">Our multi-layer risk management system helps you trade with discipline and consistency in every market condition.</p><Button variant="brandOutline" className="mt-8 h-14 border-primary-foreground/25 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">Explore Risk Engine →</Button></div>{riskLevels.map(([num, title, items, tone]) => <article key={num as string} className={`min-h-[330px] rounded-xl border p-7 ${tone === "success" ? "border-success/45 bg-success/10" : tone === "primary" ? "border-primary/45 bg-primary/10" : "border-brand-violet/45 bg-brand-violet/10"}`}><div className="flex items-center gap-5"><ShieldCheck className={`size-20 ${tone === "success" ? "text-success" : tone === "primary" ? "text-primary-glow" : "text-brand-violet"}`} /><div><p className="text-4xl font-extrabold">{num as string}</p><h3 className="text-2xl font-extrabold">{title as string}</h3></div></div><ul className="mt-7 space-y-4 text-lg font-bold text-primary-foreground/78">{(items as string[]).map((i) => <li key={i} className="flex items-center gap-3"><Check className="size-5 text-success" />{i}</li>)}</ul><div className="mt-7 rounded-full border border-primary-foreground/15 py-3 text-center font-extrabold">{num === "01" ? "Control every trade" : num === "02" ? "Protect your strategies" : "Protect your portfolio"}</div></article>)}<div className="text-center"><ShieldCheck className="mx-auto size-44 rounded-full bg-success/10 p-8 text-success" /><h3 className="mt-6 text-4xl font-extrabold uppercase text-success">Safe Trading<br />Smart Growth</h3></div></div>
     </section>
 

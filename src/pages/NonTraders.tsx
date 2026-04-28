@@ -128,10 +128,10 @@ const NonTraders = () => {
           </div>
         </div>
 
-        <div className="grid rounded-b-xl border border-t-0 bg-card px-6 py-8 shadow-sm md:grid-cols-3 xl:grid-cols-6">
+        <div className="grid gap-5 rounded-b-xl border border-t-0 bg-card px-6 py-8 shadow-sm md:grid-cols-3 xl:grid-cols-6 xl:gap-0">
           {heroStats.map(([Icon, value, label]) => {
             const StatIcon = Icon as typeof ShieldCheck;
-            return <article key={label as string} className="flex items-center justify-center gap-5 border-border px-4 xl:border-r last:border-r-0"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><StatIcon className="size-8" /></span><div><p className="font-display text-[31px] font-extrabold leading-none text-brand-navy">{value as string}</p><p className="mt-2 whitespace-pre-line text-base font-extrabold leading-5 text-muted-foreground">{label as string}</p></div></article>;
+            return <article key={label as string} className="flex min-h-[92px] items-center justify-center gap-5 border-border px-4 xl:border-r last:border-r-0"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><StatIcon className="size-8" /></span><div><p className="font-display text-[31px] font-extrabold leading-none text-brand-navy">{(value as string) || "—"}</p><p className="mt-2 whitespace-pre-line text-base font-extrabold leading-5 text-muted-foreground">{label as string}</p></div></article>;
           })}
         </div>
       </section>

@@ -56,7 +56,7 @@ const Pricing = () => {
         <p className="text-sm font-extrabold uppercase tracking-widest text-primary">Pricing</p>
         <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight text-brand-navy sm:text-5xl">Simple Pricing. Powerful Value.</h1>
         <p className="mt-4 text-lg font-bold text-muted-foreground">Choose the perfect plan for your trading journey.</p>
-        <div className="mx-auto mt-6 grid max-w-[480px] grid-cols-3 overflow-hidden rounded-lg border bg-card p-1 shadow-sm">
+        <div className="mx-auto mt-6 grid max-w-[520px] grid-cols-1 overflow-hidden rounded-lg border bg-card p-1 shadow-sm sm:grid-cols-3">
           <button type="button" onClick={() => setBillingCycle("monthly")} className={`h-12 rounded-md text-sm font-extrabold transition-all ${billingCycle === "monthly" ? "bg-gradient-brand text-primary-foreground shadow-button" : "text-brand-navy hover:bg-secondary"}`}>Monthly Billing</button>
           <button type="button" onClick={() => setBillingCycle("annual")} className={`h-12 rounded-md text-sm font-extrabold transition-all ${billingCycle === "annual" ? "bg-gradient-brand text-primary-foreground shadow-button" : "text-brand-navy hover:bg-secondary"}`}>Annual Billing</button>
           <span className="flex h-12 items-center justify-center rounded-md text-sm font-extrabold text-success">Save 20%</span>
@@ -68,7 +68,7 @@ const Pricing = () => {
           const discountedMonthly = plan.monthlyPrice ? plan.monthlyPrice * 0.8 : null;
           const displayPrice = plan.monthlyPrice ? formatPrice(billingCycle === "annual" ? discountedMonthly! : plan.monthlyPrice) : "Custom";
           return (
-          <article key={plan.name} className={`group relative flex min-h-[590px] flex-col rounded-xl border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-card ${plan.popular ? "border-primary shadow-card ring-2 ring-primary/20" : "border-border"}`}>
+          <article key={plan.name} className={`group relative flex min-h-[590px] flex-col rounded-xl border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-card sm:p-8 ${plan.popular ? "border-primary shadow-card ring-2 ring-primary/20" : "border-border"}`}>
             {plan.popular && <span className="absolute -top-4 right-8 rounded-md bg-primary px-5 py-2 text-sm font-extrabold text-primary-foreground shadow-button">Most Popular</span>}
             <h2 className="text-lg font-extrabold uppercase tracking-wide text-primary">{plan.name}</h2>
             <div className="mt-6 flex items-end gap-2">

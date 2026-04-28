@@ -109,9 +109,9 @@ const Business = () => {
     <main className="min-h-screen bg-background text-foreground">
       <Header activeItem="For Business" />
 
-      <section className="mx-auto max-w-[1920px] px-4 pb-4 pt-5 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 pb-4 pt-5 sm:px-6 lg:px-8 2xl:px-10">
         <div className="grid min-h-[610px] overflow-hidden rounded-lg bg-card lg:grid-cols-[0.37fr_0.63fr]">
-          <div className="flex flex-col justify-center py-10 pr-7">
+          <div className="flex flex-col justify-center px-5 py-10 lg:pl-0 lg:pr-7">
             <p className="mb-7 inline-flex w-fit rounded-lg border border-primary/20 bg-secondary px-3 py-1 text-lg font-extrabold uppercase leading-none text-primary">For Businesses</p>
             <h1 className="font-display text-[52px] font-extrabold leading-[1.18] text-brand-navy xl:text-[64px]">
               Scale Trading.<br />Maximize Returns.<br /><span className="text-primary">Powered by AI.</span>
@@ -119,7 +119,7 @@ const Business = () => {
             <p className="mt-6 max-w-[620px] text-[21px] font-extrabold leading-8 text-muted-foreground">
               Institutional-grade AI trading infrastructure for businesses, partners and investors. Deploy capital, manage risk and generate consistent returns — without operational complexity.
             </p>
-            <div className="mt-9 grid max-w-[680px] grid-cols-4 gap-5">
+            <div className="mt-9 grid max-w-[680px] grid-cols-2 gap-5 sm:grid-cols-4">
               {[[ShieldCheck, "₹4Cr+", "Capital Managed"], [UsersRound, "99+", "Active Accounts"], [ChartNoAxesCombined, "10–12%", "Average Monthly Returns"], [Target, "72%+", "Win Rate"]].map(([Icon, value, label]) => {
                 const StatIcon = Icon as typeof ShieldCheck;
                 return (
@@ -131,7 +131,7 @@ const Business = () => {
                 );
               })}
             </div>
-            <div className="mt-7 flex gap-4">
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row">
               <Button variant="brand" className="h-[58px] rounded-md px-8 text-lg font-extrabold shadow-button">Request Business Demo <ArrowRight className="size-5" /></Button>
               <Button variant="brandOutline" className="h-[58px] rounded-md px-8 text-lg font-extrabold text-primary">View Performance Reports <LineChart className="size-5" /></Button>
             </div>
@@ -144,7 +144,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 py-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 py-2 sm:px-6 lg:px-8 2xl:px-10">
         <div className="rounded-lg border bg-card px-7 py-7 shadow-sm">
           <h2 className="-mt-1 text-center font-display text-[28px] font-extrabold text-brand-navy">Built for Businesses. Designed for Growth.</h2>
           <div className="mt-5 grid gap-6 lg:grid-cols-6">
@@ -164,7 +164,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 py-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 py-2 sm:px-6 lg:px-8 2xl:px-10">
         <h2 className="mb-5 text-center font-display text-[30px] font-extrabold text-brand-navy">Why Businesses Choose FastTrade99</h2>
         <div className="grid gap-5 lg:grid-cols-6">
           {choiceCards.map(([Icon, title, text], index) => {
@@ -181,7 +181,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1920px] gap-5 px-4 py-2 sm:px-8 xl:grid-cols-[1fr_0.3fr]">
+      <section className="mx-auto grid max-w-[1920px] gap-5 px-5 py-2 sm:px-6 lg:px-8 2xl:px-10 xl:grid-cols-[1fr_0.3fr]">
         <div className="rounded-lg border bg-card px-9 py-7 shadow-sm">
           <h2 className="text-center font-display text-[30px] font-extrabold text-brand-navy">How It Works For Your Business</h2>
           <div className="mt-9 grid gap-8 lg:grid-cols-5">
@@ -208,7 +208,7 @@ const Business = () => {
         </aside>
       </section>
 
-      <section className="mx-auto grid max-w-[1920px] gap-5 px-4 py-2 sm:px-8 xl:grid-cols-[0.21fr_0.58fr_0.21fr]">
+      <section className="mx-auto grid max-w-[1920px] gap-5 px-5 py-2 sm:px-6 lg:px-8 2xl:px-10 xl:grid-cols-[0.21fr_0.58fr_0.21fr]">
         <aside className="rounded-lg border bg-card p-7 shadow-sm">
           <h2 className="text-center font-display text-[26px] font-extrabold text-brand-navy">Business Use Cases</h2>
           <div className="mt-7 space-y-6">
@@ -251,7 +251,7 @@ const Business = () => {
         </aside>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 py-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 py-2 sm:px-6 lg:px-8 2xl:px-10">
         <div className="rounded-lg border bg-card px-8 py-7 shadow-sm">
           <h2 className="text-center font-display text-[28px] font-extrabold text-brand-navy">Enterprise-Grade Infrastructure</h2>
           <div className="mt-7 grid gap-7 lg:grid-cols-6">
@@ -260,7 +260,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 pb-6 pt-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 pb-6 pt-2 sm:px-6 lg:px-8 2xl:px-10">
         <h2 className="mb-5 text-center font-display text-[28px] font-extrabold text-brand-navy">Partnership Models That Work For You</h2>
         <div className="grid gap-5 xl:grid-cols-[1fr_0.47fr]">
           <div className="grid gap-5 lg:grid-cols-4">
@@ -280,12 +280,12 @@ const Business = () => {
             <h3 className="font-display text-[28px] font-extrabold">Why Partner With FastTrade99?</h3>
             <ul className="mt-7 space-y-5 text-base font-bold text-primary-foreground/85">{["Proven AI Engine delivering 10–12% monthly returns", "Fully automated — No manual trading required", "Scalable, secure & transparent", "Performance based — We win when you win", "Long-term partnership for mutual growth"].map((item) => <li key={item} className="flex gap-4"><BadgeCheck className="size-5 shrink-0 fill-primary text-brand-navy" />{item}</li>)}</ul>
             <p className="mt-8 font-display text-[28px] font-extrabold leading-tight">Ready to grow your business with AI-powered trading?</p>
-            <div className="mt-6 flex gap-4"><Button variant="brand" className="h-14 rounded-md px-9 text-base font-extrabold">Request Demo</Button><Button variant="brandOutline" className="h-14 rounded-md border-primary-foreground/30 bg-transparent px-9 text-base font-extrabold text-primary-foreground hover:bg-card/10">Talk to Our Team</Button></div>
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row"><Button variant="brand" className="h-14 rounded-md px-9 text-base font-extrabold">Request Demo</Button><Button variant="brandOutline" className="h-14 rounded-md border-primary-foreground/30 bg-transparent px-9 text-base font-extrabold text-primary-foreground hover:bg-card/10">Talk to Our Team</Button></div>
             <p className="mt-5 text-base font-bold text-primary-foreground/75">No Hidden Fees <span className="mx-5">•</span> No Lock-in Period <span className="mx-5">•</span> Cancel Anytime</p>
           </aside>
         </div>
         <div className="mt-2 grid gap-4 rounded-2xl bg-brand-navy p-6 text-primary-foreground lg:grid-cols-[0.68fr_0.32fr]">
-          <div><h3 className="font-display text-xl font-extrabold">Trusted by Businesses Across India</h3><div className="mt-5 grid grid-cols-6 gap-5">{[[ShieldCheck,"₹4Cr+","Capital Deployed"],[UsersRound,"99+","Active Accounts"],[ChartNoAxesCombined,"10–12%","Average Monthly Returns"],[Target,"72%+","Win Rate"],[CircleGauge,"24/7","AI Trading"],[BriefcaseBusiness,"100%","Transparency"]].map(([Icon,value,label])=>{const TrustIcon=Icon as typeof ShieldCheck; return <div key={label as string} className="flex items-center gap-3"><TrustIcon className="size-8 text-primary"/><div><p className="font-display text-2xl font-extrabold">{value as string}</p><p className="text-xs font-bold text-primary-foreground/70">{label as string}</p></div></div>})}</div></div>
+          <div><h3 className="font-display text-xl font-extrabold">Trusted by Businesses Across India</h3><div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-6">{[[ShieldCheck,"₹4Cr+","Capital Deployed"],[UsersRound,"99+","Active Accounts"],[ChartNoAxesCombined,"10–12%","Average Monthly Returns"],[Target,"72%+","Win Rate"],[CircleGauge,"24/7","AI Trading"],[BriefcaseBusiness,"100%","Transparency"]].map(([Icon,value,label])=>{const TrustIcon=Icon as typeof ShieldCheck; return <div key={label as string} className="flex items-center gap-3"><TrustIcon className="size-8 text-primary"/><div><p className="font-display text-2xl font-extrabold">{value as string}</p><p className="text-xs font-bold text-primary-foreground/70">{label as string}</p></div></div>})}</div></div>
           <div className="border-primary-foreground/10 lg:border-l lg:pl-8"><Quote className="size-12 fill-primary text-primary"/><p className="-mt-8 ml-16 text-base font-bold leading-7 text-primary-foreground/85">FastTrade99 has helped us deliver consistent returns to our clients without building a trading team. Their AI infrastructure is our competitive advantage.</p><div className="mt-4 ml-16 flex gap-2">{Array.from({length:5}).map((_,i)=><Star key={i} className="size-7 fill-brand-gold text-brand-gold" />)}</div></div>
         </div>
       </section>
