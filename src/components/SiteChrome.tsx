@@ -9,6 +9,8 @@ const navHref = (item: string) =>
     ? "/about"
     : item === "Pricing"
       ? "/pricing"
+      : item === "How It Works"
+        ? "/#how-it-works"
       : item === "For Business"
         ? "/business"
         : item === "For Non-Traders"
@@ -17,11 +19,17 @@ const navHref = (item: string) =>
             ? "/traders"
             : item === "Strategies"
               ? "/strategies"
+              : item === "Risk Management"
+                ? "/#risk-management"
+                : item === "Strategy Builder" || item === "Backtesting" || item === "Marketplace"
+                  ? "/strategies"
+                  : item === "Algo Trading"
+                    ? "/traders"
               : "/#top";
 
 export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
   <a href="/" className="flex items-center" aria-label="FastTrade99 home">
-    <span className={`flex h-16 w-[270px] items-center overflow-hidden rounded-md ${dark ? "bg-primary-foreground px-3" : "bg-card px-1"}`}>
+    <span className={`flex h-14 w-[190px] items-center overflow-hidden rounded-md sm:h-16 sm:w-[270px] ${dark ? "bg-primary-foreground px-3" : "bg-card px-1"}`}>
       <img src={fastTradeLogo} alt="FastTrade99" className="h-full w-full object-contain" />
     </span>
   </a>
@@ -29,7 +37,7 @@ export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
 
 export const Header = ({ activeItem }: { activeItem?: string }) => (
   <header className="sticky top-0 z-40 border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[92px] max-w-[1920px] items-center justify-between px-6 lg:px-8 2xl:px-10">
+    <nav className="mx-auto flex h-[82px] max-w-[1920px] items-center justify-between gap-3 px-4 sm:h-[92px] sm:px-6 lg:px-8 2xl:px-10">
       <BrandLogo />
       <div className="hidden items-center gap-8 text-sm font-extrabold text-brand-navy xl:flex 2xl:gap-10">
         {navItems.map((item) => (
@@ -43,8 +51,8 @@ export const Header = ({ activeItem }: { activeItem?: string }) => (
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <Button variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-7 text-base font-extrabold sm:inline-flex">Login</Button>
-        <Button variant="brand" size="lg" className="h-12 rounded-md px-7 text-base font-extrabold shadow-button">Sign Up</Button>
+        <Button variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-7 text-base font-extrabold md:inline-flex">Login</Button>
+        <Button variant="brand" size="lg" className="h-11 rounded-md px-5 text-sm font-extrabold shadow-button sm:h-12 sm:px-7 sm:text-base">Sign Up</Button>
       </div>
     </nav>
   </header>
