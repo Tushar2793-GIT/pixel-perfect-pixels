@@ -109,9 +109,9 @@ const Business = () => {
     <main className="min-h-screen bg-background text-foreground">
       <Header activeItem="For Business" />
 
-      <section className="mx-auto max-w-[1920px] px-4 pb-4 pt-5 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 pb-4 pt-5 sm:px-6 lg:px-8 2xl:px-10">
         <div className="grid min-h-[610px] overflow-hidden rounded-lg bg-card lg:grid-cols-[0.37fr_0.63fr]">
-          <div className="flex flex-col justify-center py-10 pr-7">
+          <div className="flex flex-col justify-center px-5 py-10 lg:pl-0 lg:pr-7">
             <p className="mb-7 inline-flex w-fit rounded-lg border border-primary/20 bg-secondary px-3 py-1 text-lg font-extrabold uppercase leading-none text-primary">For Businesses</p>
             <h1 className="font-display text-[52px] font-extrabold leading-[1.18] text-brand-navy xl:text-[64px]">
               Scale Trading.<br />Maximize Returns.<br /><span className="text-primary">Powered by AI.</span>
@@ -119,7 +119,7 @@ const Business = () => {
             <p className="mt-6 max-w-[620px] text-[21px] font-extrabold leading-8 text-muted-foreground">
               Institutional-grade AI trading infrastructure for businesses, partners and investors. Deploy capital, manage risk and generate consistent returns — without operational complexity.
             </p>
-            <div className="mt-9 grid max-w-[680px] grid-cols-4 gap-5">
+            <div className="mt-9 grid max-w-[680px] grid-cols-2 gap-5 sm:grid-cols-4">
               {[[ShieldCheck, "₹4Cr+", "Capital Managed"], [UsersRound, "99+", "Active Accounts"], [ChartNoAxesCombined, "10–12%", "Average Monthly Returns"], [Target, "72%+", "Win Rate"]].map(([Icon, value, label]) => {
                 const StatIcon = Icon as typeof ShieldCheck;
                 return (
@@ -131,7 +131,7 @@ const Business = () => {
                 );
               })}
             </div>
-            <div className="mt-7 flex gap-4">
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row">
               <Button variant="brand" className="h-[58px] rounded-md px-8 text-lg font-extrabold shadow-button">Request Business Demo <ArrowRight className="size-5" /></Button>
               <Button variant="brandOutline" className="h-[58px] rounded-md px-8 text-lg font-extrabold text-primary">View Performance Reports <LineChart className="size-5" /></Button>
             </div>
@@ -144,7 +144,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 py-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 py-2 sm:px-6 lg:px-8 2xl:px-10">
         <div className="rounded-lg border bg-card px-7 py-7 shadow-sm">
           <h2 className="-mt-1 text-center font-display text-[28px] font-extrabold text-brand-navy">Built for Businesses. Designed for Growth.</h2>
           <div className="mt-5 grid gap-6 lg:grid-cols-6">
@@ -164,7 +164,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-4 py-2 sm:px-8">
+      <section className="mx-auto max-w-[1920px] px-5 py-2 sm:px-6 lg:px-8 2xl:px-10">
         <h2 className="mb-5 text-center font-display text-[30px] font-extrabold text-brand-navy">Why Businesses Choose FastTrade99</h2>
         <div className="grid gap-5 lg:grid-cols-6">
           {choiceCards.map(([Icon, title, text], index) => {
@@ -181,7 +181,7 @@ const Business = () => {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1920px] gap-5 px-4 py-2 sm:px-8 xl:grid-cols-[1fr_0.3fr]">
+      <section className="mx-auto grid max-w-[1920px] gap-5 px-5 py-2 sm:px-6 lg:px-8 2xl:px-10 xl:grid-cols-[1fr_0.3fr]">
         <div className="rounded-lg border bg-card px-9 py-7 shadow-sm">
           <h2 className="text-center font-display text-[30px] font-extrabold text-brand-navy">How It Works For Your Business</h2>
           <div className="mt-9 grid gap-8 lg:grid-cols-5">
@@ -208,7 +208,7 @@ const Business = () => {
         </aside>
       </section>
 
-      <section className="mx-auto grid max-w-[1920px] gap-5 px-4 py-2 sm:px-8 xl:grid-cols-[0.21fr_0.58fr_0.21fr]">
+      <section className="mx-auto grid max-w-[1920px] gap-5 px-5 py-2 sm:px-6 lg:px-8 2xl:px-10 xl:grid-cols-[0.21fr_0.58fr_0.21fr]">
         <aside className="rounded-lg border bg-card p-7 shadow-sm">
           <h2 className="text-center font-display text-[26px] font-extrabold text-brand-navy">Business Use Cases</h2>
           <div className="mt-7 space-y-6">
