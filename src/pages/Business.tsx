@@ -110,8 +110,8 @@ const Business = () => {
       <Header activeItem="For Business" />
 
       <section className="mx-auto max-w-[1920px] px-5 pb-4 pt-5 sm:px-6 lg:px-8 2xl:px-10">
-        <div className="grid min-h-[610px] overflow-hidden rounded-lg bg-card lg:grid-cols-[0.37fr_0.63fr]">
-          <div className="flex flex-col justify-center px-5 py-10 lg:pl-0 lg:pr-7">
+        <div className="grid min-h-[610px] overflow-hidden rounded-lg bg-card lg:grid-cols-[0.41fr_0.59fr]">
+          <div className="flex flex-col justify-center px-5 py-10 lg:pl-0 lg:pr-8">
             <p className="mb-7 inline-flex w-fit rounded-lg border border-primary/20 bg-secondary px-3 py-1 text-lg font-extrabold uppercase leading-none text-primary">For Businesses</p>
             <h1 className="font-display text-[52px] font-extrabold leading-[1.18] text-brand-navy xl:text-[64px]">
               Scale Trading.<br />Maximize Returns.<br /><span className="text-primary">Powered by AI.</span>
@@ -137,8 +137,8 @@ const Business = () => {
             </div>
           </div>
           <div className="relative min-h-[610px] overflow-hidden rounded-xl shadow-card">
-            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover object-center contrast-[1.08] saturate-[1.12] brightness-[1.03]" />
-            <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-card via-card/70 to-transparent" />
+            <img src={businessHero} alt="Business team reviewing AI trading performance dashboard" width={1600} height={900} className="h-full w-full object-cover object-[58%_50%] contrast-[1.1] saturate-[1.16] brightness-[1.04]" />
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-card via-card/65 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 mix-blend-soft-light" />
           </div>
         </div>
