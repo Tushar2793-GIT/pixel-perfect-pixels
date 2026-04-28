@@ -127,13 +127,13 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 );
 
 const BrokerStrip = () => (
-  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+  <div className="mt-4 grid max-w-[880px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-12 w-full max-w-[150px] object-contain" />
+      <div key={broker.name} className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-11 w-full max-w-[156px] object-contain" />
       </div>
     ))}
-    <div className="flex h-[82px] items-center justify-center rounded-lg border border-primary/15 bg-card px-4 text-lg font-extrabold text-primary shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">+ More</div>
+    <div className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 text-lg font-extrabold text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:text-primary hover:shadow-card">+ More</div>
   </div>
 );
 
@@ -218,8 +218,8 @@ const Index = () => (
       <div className="text-center"><p className="text-lg font-extrabold uppercase text-primary">Built For Everyone</p><h2 className="mt-3 font-display text-4xl font-extrabold text-brand-navy">One Platform. Endless Possibilities.</h2></div>
       <div className="mt-7 grid gap-6 xl:grid-cols-3">
         {audienceCards.map(({ title, text, tone, Icon, bullets }) => (
-          <article key={title} className={`grid min-h-[340px] gap-5 rounded-xl border p-7 shadow-sm lg:grid-cols-[1fr_230px] ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
-            <div><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div><h3 className={`font-display text-3xl font-extrabold ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold text-brand-navy"><Check className={`size-6 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} />{b}</li>)}</ul></div>
+          <article key={title} className={`grid min-h-[430px] gap-6 rounded-xl border p-7 shadow-sm lg:grid-cols-[minmax(0,0.92fr)_minmax(190px,0.72fr)] ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
+            <div className="min-w-0"><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div className="min-w-0"><h3 className={`font-display text-[clamp(1.7rem,1.7vw,2.35rem)] font-extrabold leading-tight ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold leading-6 text-brand-navy"><Check className={`size-6 shrink-0 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} /><span>{b}</span></li>)}</ul></div>
             <div className="flex items-end justify-center"><AudienceVisual title={title} /></div>
           </article>
         ))}
