@@ -249,6 +249,8 @@ const Index = () => (
       <div className="mt-6 grid items-center gap-8 overflow-hidden rounded-xl border border-primary/10 bg-secondary px-8 py-8 shadow-sm lg:grid-cols-[300px_1fr_auto]"><AnimatedRobot /><div><p className="text-sm font-extrabold uppercase tracking-widest text-primary">AI automation built for disciplined trading</p><h2 className="mt-3 max-w-[760px] font-display text-4xl font-extrabold leading-tight text-brand-navy">Ready to Take Your Trading to the Next Level?</h2><p className="mt-4 max-w-[720px] text-xl font-bold leading-8 text-muted-foreground">Join FastTrade99 and experience smarter execution, connected brokers, automated strategies and multi-level risk control in one professional workspace.</p></div><div className="grid gap-4"><Button variant="brand" className="h-16 px-10 text-xl font-extrabold shadow-button">Start Your Free Trial</Button><Button variant="brandOutline" className="h-16 px-10 text-xl font-extrabold">Book a Demo</Button><p className="text-center text-sm font-extrabold text-muted-foreground">No Credit Card Required</p></div></div>
     </section>
 
+    <RequestDemoSection />
+
     <Footer />
   </main>
 );
