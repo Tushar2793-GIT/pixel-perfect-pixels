@@ -113,6 +113,27 @@ export default {
             height: "0",
           },
         },
+        "modal-in": {
+          "0%": { opacity: "0", transform: "translateY(40px) scale(0.92) rotateX(8deg)" },
+          "60%": { opacity: "1" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1) rotateX(0)" },
+        },
+        "backdrop-in": {
+          "0%": { opacity: "0", backdropFilter: "blur(0px)" },
+          "100%": { opacity: "1", backdropFilter: "blur(14px)" },
+        },
+        "orb-drift": {
+          "0%, 100%": { transform: "translate(0,0) scale(1)" },
+          "50%": { transform: "translate(20px,-30px) scale(1.15)" },
+        },
+        "stagger-up": {
+          "0%": { opacity: "0", transform: "translateY(14px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "shine-sweep": {
+          "0%": { transform: "translateX(-120%) skewX(-20deg)" },
+          "100%": { transform: "translateX(220%) skewX(-20deg)" },
+        },
       },
       animation: {
         float: "float 5s ease-in-out infinite",
@@ -121,6 +142,11 @@ export default {
         blink: "blink 3.4s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "modal-in": "modal-in 0.55s cubic-bezier(0.16,1,0.3,1) both",
+        "backdrop-in": "backdrop-in 0.4s ease-out both",
+        "orb-drift": "orb-drift 9s ease-in-out infinite",
+        "stagger-up": "stagger-up 0.5s cubic-bezier(0.16,1,0.3,1) both",
+        "shine-sweep": "shine-sweep 2.4s ease-in-out infinite",
       },
     },
   },
