@@ -2,6 +2,7 @@ import {
   BarChart3,
   Bot,
   BriefcaseBusiness,
+  CalendarCheck,
   Check,
   ChevronDown,
   CircleDot,
@@ -11,13 +12,18 @@ import {
   Network,
   PieChart,
   Search,
+  Send,
   ShieldCheck,
+  Sparkles,
   Target,
   TrendingUp,
   User,
   Users,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "@/components/ui/sonner";
+import { Input } from "@/components/ui/input";
 import brokerZerodha from "@/assets/broker-zerodha.png";
 import brokerUpstox from "@/assets/broker-upstox.png";
 import brokerAngelOne from "@/assets/broker-angelone.png";
