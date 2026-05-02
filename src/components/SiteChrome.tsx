@@ -51,6 +51,9 @@ export const Header = ({ activeItem }: { activeItem?: string }) => (
         ))}
       </div>
       <div className="flex items-center gap-3">
+        <Button asChild variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-6 text-base font-extrabold lg:inline-flex">
+          <a href="/#request-demo">Request Demo</a>
+        </Button>
         <Button variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-7 text-base font-extrabold md:inline-flex">Login</Button>
         <Button variant="brand" size="lg" className="h-11 rounded-md px-5 text-sm font-extrabold shadow-button sm:h-12 sm:px-7 sm:text-base">Sign Up</Button>
       </div>
