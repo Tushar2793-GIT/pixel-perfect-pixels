@@ -1,6 +1,8 @@
 import { Linkedin, Send, ShieldCheck, Twitter, Youtube } from "lucide-react";
+import { useState } from "react";
 import fastTradeLogo from "@/assets/fasttrade99-logo-official.png";
 import { Button } from "@/components/ui/button";
+import { RequestDemoModal } from "@/components/RequestDemoModal";
 
 const navItems = ["How It Works", "Strategies", "For Traders", "For Non-Traders", "For Business", "Pricing", "About Us"];
 
