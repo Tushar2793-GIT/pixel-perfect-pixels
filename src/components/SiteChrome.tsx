@@ -37,31 +37,43 @@ export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
   </a>
 );
 
-export const Header = ({ activeItem }: { activeItem?: string }) => (
-  <header className="sticky top-0 z-40 border-b bg-card/95 shadow-sm backdrop-blur">
-    <nav className="mx-auto flex h-[82px] max-w-[1920px] items-center justify-between gap-3 px-4 sm:h-[92px] sm:px-6 lg:px-8 2xl:px-10">
-      <BrandLogo />
-      <div className="hidden items-center gap-8 text-sm font-extrabold text-brand-navy xl:flex 2xl:gap-10">
-        {navItems.map((item) => (
-          <a
-            key={item}
-            href={navHref(item)}
-            className={`relative py-9 transition-colors hover:text-primary ${item === activeItem ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Button asChild variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-6 text-base font-extrabold lg:inline-flex">
-          <a href="/#request-demo">Request Demo</a>
-        </Button>
-        <Button variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-7 text-base font-extrabold md:inline-flex">Login</Button>
-        <Button variant="brand" size="lg" className="h-11 rounded-md px-5 text-sm font-extrabold shadow-button sm:h-12 sm:px-7 sm:text-base">Sign Up</Button>
-      </div>
-    </nav>
-  </header>
-);
+export const Header = ({ activeItem }: { activeItem?: string }) => {
+  const [demoOpen, setDemoOpen] = useState(false);
+  return (
+    <>
+      <header className="sticky top-0 z-40 border-b bg-card/95 shadow-sm backdrop-blur">
+        <nav className="mx-auto flex h-[82px] max-w-[1920px] items-center justify-between gap-3 px-4 sm:h-[92px] sm:px-6 lg:px-8 2xl:px-10">
+          <BrandLogo />
+          <div className="hidden items-center gap-8 text-sm font-extrabold text-brand-navy xl:flex 2xl:gap-10">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={navHref(item)}
+                className={`relative py-9 transition-colors hover:text-primary ${item === activeItem ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:rounded-full after:bg-primary" : ""}`}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+          <div className="flex items-center gap-3">
+            <Button
+              onClick={() => setDemoOpen(true)}
+              variant="brandOutline"
+              size="lg"
+              className="group hidden h-12 rounded-md px-6 text-base font-extrabold lg:inline-flex"
+            >
+              <Send className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              Request Demo
+            </Button>
+            <Button variant="brandOutline" size="lg" className="hidden h-12 rounded-md px-7 text-base font-extrabold md:inline-flex">Login</Button>
+            <Button variant="brand" size="lg" className="h-11 rounded-md px-5 text-sm font-extrabold shadow-button sm:h-12 sm:px-7 sm:text-base">Sign Up</Button>
+          </div>
+        </nav>
+      </header>
+      <RequestDemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
+    </>
+  );
+};
 
 const footerGroups = [
   ["Platform", ["How It Works", "Strategies", "Pricing", "Risk Management"]],
