@@ -1,6 +1,6 @@
 import { Linkedin, Send, ShieldCheck, Twitter, Youtube } from "lucide-react";
 import { useState } from "react";
-import fastTradeLogo from "@/assets/fasttrade99-logo-official.png";
+import ftCircleLogo from "@/assets/fasttrade99-ft-official.png";
 import { Button } from "@/components/ui/button";
 import { RequestDemoModal } from "@/components/RequestDemoModal";
 
@@ -27,12 +27,23 @@ const navHref = (item: string) =>
                   ? "/strategies"
                   : item === "Algo Trading"
                     ? "/traders"
-              : "/#top";
+                    : "/#top";
 
 export const BrandLogo = ({ dark = false }: { dark?: boolean }) => (
   <a href="/" className="flex items-center" aria-label="FastTrade99 home">
-    <span className={`flex h-14 w-[190px] items-center overflow-hidden rounded-md sm:h-16 sm:w-[270px] ${dark ? "bg-primary-foreground px-3" : "bg-card px-1"}`}>
-      <img src={fastTradeLogo} alt="FastTrade99" className="h-full w-full object-contain" />
+    <span className="flex items-center gap-3">
+      <span className={`flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full border p-1 sm:size-14 ${dark ? "border-primary-foreground/14 bg-primary-foreground/8" : "border-primary/15 bg-card shadow-sm"}`}>
+        <img src={ftCircleLogo} alt="FastTrade99 FT mark" className="h-full w-full object-contain" />
+      </span>
+      <span className="flex min-w-0 flex-col leading-none">
+        <span className={`font-display text-[clamp(1.7rem,2vw,2.6rem)] font-black tracking-tight ${dark ? "text-primary-foreground" : "text-brand-navy"}`}>
+          <span className={dark ? "text-primary-foreground" : "text-brand-navy"}>fast</span>
+          <span className="bg-gradient-brand bg-clip-text text-transparent">Trade99</span>
+        </span>
+        <span className={`mt-1 text-[10px] font-extrabold uppercase tracking-[0.28em] sm:text-[11px] ${dark ? "text-primary-foreground/62" : "text-muted-foreground"}`}>
+          AI-powered trading
+        </span>
+      </span>
     </span>
   </a>
 );
