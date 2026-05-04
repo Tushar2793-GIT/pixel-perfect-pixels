@@ -29,12 +29,12 @@ import { Button } from "@/components/ui/button";
 import { Footer, Header } from "@/components/SiteChrome";
 
 const brokers = [
-  { name: "ZERODHA", logo: brokerZerodha },
-  { name: "upstox", logo: brokerUpstox },
-  { name: "AngelOne", logo: brokerAngelOne },
-  { name: "ICICI direct", logo: brokerIcici },
-  { name: "5paisa", logo: brokerPaisa },
-  { name: "dhan", logo: brokerDhan },
+  { name: "ZERODHA", logo: brokerZerodha, span: "lg:col-span-1" },
+  { name: "upstox", logo: brokerUpstox, span: "lg:col-span-1" },
+  { name: "AngelOne", logo: brokerAngelOne, span: "lg:col-span-1" },
+  { name: "ICICI direct", logo: brokerIcici, span: "lg:col-span-1" },
+  { name: "5paisa", logo: brokerPaisa, span: "lg:col-span-1 lg:col-start-2" },
+  { name: "dhan", logo: brokerDhan, span: "lg:col-span-1" },
 ];
 
 const sideNav = ["Dashboard", "Portfolio", "Strategies", "Backtest", "Algo Trading", "Orders", "Positions", "Risk Manager", "Reports", "Followers", "Settings"];
@@ -127,13 +127,18 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 );
 
 const BrokerStrip = () => (
-  <div className="mt-4 grid max-w-[880px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+  <div className="mt-5 grid w-full max-w-[1060px] grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-5">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-11 w-full max-w-[156px] object-contain" />
+      <div
+        key={broker.name}
+        className={`flex h-[88px] items-center justify-center rounded-[22px] border border-primary/10 bg-card px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-card ${broker.span}`}
+      >
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-9 w-full max-w-[170px] object-contain sm:h-10" />
       </div>
     ))}
-    <div className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 text-lg font-extrabold text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:text-primary hover:shadow-card">+ More</div>
+    <div className="flex h-[88px] items-center justify-center rounded-[22px] border border-primary/10 bg-card px-6 text-[clamp(1.15rem,1.2vw,1.7rem)] font-extrabold tracking-tight text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:text-primary hover:shadow-card lg:col-start-3">
+      + More
+    </div>
   </div>
 );
 
@@ -176,13 +181,15 @@ const AudienceVisual = ({ title }: { title: string }) => {
 };
 
 const PlatformPreview = () => (
-  <div className="mt-5 grid items-center gap-6 rounded-xl border bg-card p-6 shadow-sm xl:grid-cols-[280px_1fr_280px]">
+  <div className="mt-5 grid items-start gap-6 rounded-xl border bg-card p-4 shadow-sm md:p-6 xl:grid-cols-[minmax(220px,260px)_minmax(0,1fr)_minmax(220px,260px)]">
     <div className="space-y-8">{previewLeft.map(([Icon, title, text]) => { const I = Icon as typeof BarChart3; return <div key={title as string} className="flex gap-5"><I className="size-12 shrink-0 rounded-full bg-secondary p-2 text-primary" /><div><h3 className="font-extrabold text-brand-navy">{title as string}</h3><p className="mt-1 text-sm font-bold leading-6 text-muted-foreground">{text as string}</p></div></div>; })}</div>
-    <div className="grid overflow-hidden rounded-xl border border-primary/25 bg-brand-navy text-primary-foreground shadow-card lg:grid-cols-[54px_1.3fr_0.72fr_0.55fr]">
-      <div className="hidden border-r border-primary-foreground/10 bg-primary-foreground/5 py-3 lg:block">{[BarChart3, LineChart, Gauge, Network, Target, ShieldCheck, PieChart].map((Icon, i) => <span key={i} className="mx-auto mb-3 flex size-9 items-center justify-center rounded-md text-primary-foreground/70 first:bg-primary/30 first:text-primary-foreground"><Icon className="size-5" /></span>)}</div>
-      <div className="p-4"><div className="mb-3 flex flex-wrap items-center gap-4 text-xs font-extrabold text-primary-foreground/70"><span>NIFTY 50</span><ChevronDown className="size-4" /><span>1m</span><span>5m</span><span>15m</span><span>1H</span><span>D</span><span>W</span><span>M</span><span>Indicators</span></div><h3 className="text-3xl font-extrabold text-success">24,813.55</h3><p className="font-extrabold text-success">+110.25 (0.45%)</p><MiniChart dark compact /></div>
-      <div className="border-t border-primary-foreground/10 p-4 lg:border-l lg:border-t-0"><h3 className="font-extrabold">Positions (6)</h3><p className="mt-4 text-sm text-primary-foreground/70">Total P&L</p><p className="mt-1 text-xl font-extrabold text-success">+₹ 24,530.75</p>{["RELIANCE|+ ₹ 6,210.00", "BANKNIFTY|+ ₹ 5,320.00", "TCS|- ₹ 1,150.00", "INFY|+ ₹ 2,450.00"].map((x) => { const [a,b]=x.split("|"); return <p key={a} className="mt-4 flex justify-between text-sm font-bold"><span>{a}</span><span className={b.includes("-") ? "text-destructive" : "text-success"}>{b}</span></p>; })}<div className="mt-5 grid grid-cols-2 gap-3"><Button variant="brand" size="sm">New Order</Button><Button variant="brandOutline" size="sm" className="bg-transparent text-primary-foreground">Strategy Builder</Button></div></div>
-      <div className="border-t border-primary-foreground/10 p-4 lg:border-l lg:border-t-0"><h3 className="font-extrabold">Risk Summary</h3><div className="mt-5 flex items-center gap-4"><div className="size-24 rounded-full border-[16px] border-success border-r-brand-gold border-b-brand-orange" /><div className="space-y-3 text-xs font-bold"><p>Low Risk <span className="float-right ml-5">60%</span></p><p>Medium Risk 30%</p><p>High Risk 10%</p></div></div><div className="mt-6 rounded-lg border border-primary-foreground/10 p-4"><p className="font-extrabold">Daily Risk Limit</p><p className="mt-3 text-2xl font-extrabold">₹ 50,000</p><p className="mt-2 text-sm font-bold text-primary-foreground/65">Used: ₹ 18,450 (36.9%)</p><div className="mt-3 h-3 overflow-hidden rounded-full bg-primary-foreground/15"><div className="h-full w-[37%] rounded-full bg-success" /></div></div></div>
+    <div className="min-w-0 overflow-hidden rounded-xl border border-primary/25 bg-brand-navy text-primary-foreground shadow-card">
+      <div className="grid lg:grid-cols-[54px_minmax(0,1.35fr)_minmax(250px,0.78fr)_minmax(220px,0.6fr)]">
+        <div className="hidden border-r border-primary-foreground/10 bg-primary-foreground/5 py-3 lg:block">{[BarChart3, LineChart, Gauge, Network, Target, ShieldCheck, PieChart].map((Icon, i) => <span key={i} className="mx-auto mb-3 flex size-9 items-center justify-center rounded-md text-primary-foreground/70 first:bg-primary/30 first:text-primary-foreground"><Icon className="size-5" /></span>)}</div>
+        <div className="min-w-0 p-4"><div className="mb-3 flex flex-wrap items-center gap-4 text-xs font-extrabold text-primary-foreground/70"><span>NIFTY 50</span><ChevronDown className="size-4" /><span>1m</span><span>5m</span><span>15m</span><span>1H</span><span>D</span><span>W</span><span>M</span><span>Indicators</span></div><h3 className="text-3xl font-extrabold text-success">24,813.55</h3><p className="font-extrabold text-success">+110.25 (0.45%)</p><MiniChart dark compact /></div>
+        <div className="border-t border-primary-foreground/10 p-4 lg:border-l lg:border-t-0"><h3 className="font-extrabold">Positions (6)</h3><p className="mt-4 text-sm text-primary-foreground/70">Total P&L</p><p className="mt-1 text-xl font-extrabold text-success">+₹ 24,530.75</p>{["RELIANCE|+ ₹ 6,210.00", "BANKNIFTY|+ ₹ 5,320.00", "TCS|- ₹ 1,150.00", "INFY|+ ₹ 2,450.00"].map((x) => { const [a,b]=x.split("|"); return <p key={a} className="mt-4 flex justify-between gap-4 text-sm font-bold"><span className="truncate">{a}</span><span className={b.includes("-") ? "text-destructive" : "text-success"}>{b}</span></p>; })}<div className="mt-5 grid grid-cols-2 gap-3"><Button variant="brand" size="sm">New Order</Button><Button variant="brandOutline" size="sm" className="bg-transparent text-primary-foreground">Strategy Builder</Button></div></div>
+        <div className="border-t border-primary-foreground/10 p-4 lg:border-l lg:border-t-0"><h3 className="font-extrabold">Risk Summary</h3><div className="mt-5 flex items-center gap-4"><div className="size-24 shrink-0 rounded-full border-[16px] border-success border-r-brand-gold border-b-brand-orange" /><div className="min-w-0 space-y-3 text-xs font-bold"><p>Low Risk <span className="float-right ml-5">60%</span></p><p>Medium Risk 30%</p><p>High Risk 10%</p></div></div><div className="mt-6 rounded-lg border border-primary-foreground/10 p-4"><p className="font-extrabold">Daily Risk Limit</p><p className="mt-3 text-2xl font-extrabold">₹ 50,000</p><p className="mt-2 text-sm font-bold text-primary-foreground/65">Used: ₹ 18,450 (36.9%)</p><div className="mt-3 h-3 overflow-hidden rounded-full bg-primary-foreground/15"><div className="h-full w-[37%] rounded-full bg-success" /></div></div></div>
+      </div>
     </div>
     <div className="space-y-8">{previewRight.map(([Icon, title, text]) => { const I = Icon as typeof Zap; return <div key={title as string} className="flex gap-5"><I className="size-12 shrink-0 rounded-full bg-secondary p-2 text-primary" /><div><h3 className="font-extrabold text-brand-navy">{title as string}</h3><p className="mt-1 text-sm font-bold leading-6 text-muted-foreground">{text as string}</p></div></div>; })}</div>
   </div>
@@ -218,9 +225,9 @@ const Index = () => (
       <div className="text-center"><p className="text-lg font-extrabold uppercase text-primary">Built For Everyone</p><h2 className="mt-3 font-display text-4xl font-extrabold text-brand-navy">One Platform. Endless Possibilities.</h2></div>
       <div className="mt-7 grid gap-6 xl:grid-cols-3">
         {audienceCards.map(({ title, text, tone, Icon, bullets }) => (
-          <article key={title} className={`grid min-h-[430px] gap-6 rounded-xl border p-7 shadow-sm lg:grid-cols-[minmax(0,0.92fr)_minmax(190px,0.72fr)] ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
-            <div className="min-w-0"><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div className="min-w-0"><h3 className={`font-display text-[clamp(1.7rem,1.7vw,2.35rem)] font-extrabold leading-tight ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold leading-6 text-brand-navy"><Check className={`size-6 shrink-0 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} /><span>{b}</span></li>)}</ul></div>
-            <div className="flex items-end justify-center"><AudienceVisual title={title} /></div>
+          <article key={title} className={`grid min-h-[430px] gap-8 rounded-xl border p-7 shadow-sm md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(220px,0.8fr)] lg:items-start ${tone === "green" ? "border-success/25 bg-success/5" : tone === "violet" ? "border-primary/25 bg-secondary" : "border-primary/20 bg-primary/5"}`}>
+            <div className="min-w-0"><div className="flex items-start gap-5"><span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm"><Icon className="size-9" /></span><div className="min-w-0"><h3 className={`font-display text-[clamp(1.7rem,1.7vw,2.35rem)] font-extrabold leading-tight ${tone === "green" ? "text-success" : "text-primary"}`}>{title}</h3><p className="mt-3 max-w-[24rem] text-base font-bold leading-7 text-muted-foreground">{text}</p></div></div><ul className="mt-8 space-y-5">{bullets.map((b) => <li key={b} className="flex items-center gap-4 text-base font-bold leading-6 text-brand-navy"><Check className={`size-6 shrink-0 rounded-full p-1 text-primary-foreground ${tone === "green" ? "bg-success" : "bg-primary"}`} /><span>{b}</span></li>)}</ul></div>
+            <div className="flex h-full items-center justify-center lg:justify-end"><AudienceVisual title={title} /></div>
           </article>
         ))}
       </div>
