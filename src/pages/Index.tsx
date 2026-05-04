@@ -29,12 +29,12 @@ import { Button } from "@/components/ui/button";
 import { Footer, Header } from "@/components/SiteChrome";
 
 const brokers = [
-  { name: "ZERODHA", logo: brokerZerodha },
-  { name: "upstox", logo: brokerUpstox },
-  { name: "AngelOne", logo: brokerAngelOne },
-  { name: "ICICI direct", logo: brokerIcici },
-  { name: "5paisa", logo: brokerPaisa },
-  { name: "dhan", logo: brokerDhan },
+  { name: "ZERODHA", logo: brokerZerodha, span: "lg:col-span-1" },
+  { name: "upstox", logo: brokerUpstox, span: "lg:col-span-1" },
+  { name: "AngelOne", logo: brokerAngelOne, span: "lg:col-span-1" },
+  { name: "ICICI direct", logo: brokerIcici, span: "lg:col-span-1" },
+  { name: "5paisa", logo: brokerPaisa, span: "lg:col-span-1 lg:col-start-2" },
+  { name: "dhan", logo: brokerDhan, span: "lg:col-span-1" },
 ];
 
 const sideNav = ["Dashboard", "Portfolio", "Strategies", "Backtest", "Algo Trading", "Orders", "Positions", "Risk Manager", "Reports", "Followers", "Settings"];
