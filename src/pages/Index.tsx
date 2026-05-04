@@ -127,13 +127,18 @@ const MiniChart = ({ dark = false, compact = false }: { dark?: boolean; compact?
 );
 
 const BrokerStrip = () => (
-  <div className="mt-4 grid max-w-[880px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+  <div className="mt-5 grid w-full max-w-[1060px] grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-5">
     {brokers.map((broker) => (
-      <div key={broker.name} className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:shadow-card">
-        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-11 w-full max-w-[156px] object-contain" />
+      <div
+        key={broker.name}
+        className={`flex h-[88px] items-center justify-center rounded-[22px] border border-primary/10 bg-card px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-card ${broker.span}`}
+      >
+        <img src={broker.logo} alt={`${broker.name} broker logo`} className="h-9 w-full max-w-[170px] object-contain sm:h-10" />
       </div>
     ))}
-    <div className="flex h-[78px] items-center justify-center rounded-lg border border-primary/15 bg-card px-5 text-lg font-extrabold text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary/40 hover:text-primary hover:shadow-card">+ More</div>
+    <div className="flex h-[88px] items-center justify-center rounded-[22px] border border-primary/10 bg-card px-6 text-[clamp(1.15rem,1.2vw,1.7rem)] font-extrabold tracking-tight text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:text-primary hover:shadow-card lg:col-start-3">
+      + More
+    </div>
   </div>
 );
 
